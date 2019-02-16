@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "chamiloApp/*": "./*"
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
