@@ -7,7 +7,10 @@ const AppStack = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
-    navigationOptions: {},
+    headerMode: 'none',
+    navigationOptions: {
+      header: null,
+    },
   },
 );
 

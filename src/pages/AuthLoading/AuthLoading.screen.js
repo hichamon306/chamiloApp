@@ -3,6 +3,7 @@ import { View, StyleSheet, ActivityIndicator, StatusBar } from 'react-native';
 
 type PropsType = {
   navigation: any,
+  authenticationData: any,
 };
 
 const styles = StyleSheet.create({
@@ -11,22 +12,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-})
+});
 
-class AuthLoading extends React.Component {
-    constructor(props) {
-      super(props);
+class AuthLoading extends React.Component<PropsType> {
+  constructor(props) {
+    super(props);
+    if (props.authenticationData) {
+      this.props.navigation.navigate('Home');
+    } else {
       this.props.navigation.navigate('Login');
     }
-    props: PropsType;
-    
-    render() {
-      return (
-        <View style={styles.container}>
-          <ActivityIndicator />
-          <StatusBar barStyle="default" />
-        </View>
-      );
-    }
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator />
+        <StatusBar barStyle="default" />
+      </View>
+    );
+  }
 }
 export default AuthLoading;

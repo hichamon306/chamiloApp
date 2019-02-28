@@ -1,1 +1,1 @@
-export default from './AuthLoading.screen';
+export default from './AuthLoading.container';

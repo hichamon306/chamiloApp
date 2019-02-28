@@ -1,6 +1,11 @@
-import { fork } from 'redux-saga/effects';
+import { fork, all } from 'redux-saga/effects';
 import { switchLanguageSagas } from './translation';
+import { loginSagas, logoutSagas } from './authentication';
 
 export default function* rootSaga() {
-   yield fork(switchLanguageSagas);
+  yield all([
+    fork(switchLanguageSagas),
+    fork(loginSagas),
+    fork(logoutSagas),
+  ]);
 }

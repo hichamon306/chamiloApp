@@ -1,2 +1,2 @@
 
-export default from './Login.screen';
+export default from './Login.container';

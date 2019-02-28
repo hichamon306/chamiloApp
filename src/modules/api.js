@@ -12,11 +12,12 @@ export const catchApiExceptions = (saga: any, apiLoadingActionType: Object, time
         executeApiSaga: saga.apply(this, args),
       });
       if (hasTimeOuted) {
-        Toast.showError('une erreur est survenue', {}, true);
+        // Toast.showError('une erreur est survenue', {}, true);
       }
       yield put({ type: apiLoadingActionType.API_LOADING_STOP });
     } catch (error) {
       // handleApiException(error);
+      console.log(error);
       yield put({ type: apiLoadingActionType.API_LOADING_STOP });
     }
   };
