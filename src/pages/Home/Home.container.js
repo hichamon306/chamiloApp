@@ -1,9 +1,10 @@
 // @flow
 import { connect } from 'react-redux';
 import Home from './Home.screen';
-import { logoutActionCreator } from '../../modules/authentication';
+import { getUserProfile } from '../../modules/profile';
 
-const mapDispatchToProps = ({
-  logout: logoutActionCreator,
+const mapStateToProps = state => ({
+  userProfile: getUserProfile(state),
 });
-export default connect(null, mapDispatchToProps)(Home);
+
+export default connect(mapStateToProps)(Home);

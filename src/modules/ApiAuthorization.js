@@ -5,9 +5,12 @@ import * as Api from '../services/Api';
 
 export function* setCallApi(apiCall: any): SagaType {
   const response = yield call(() => Api.addApiHeader(apiCall));
-  return response.body;
+  if (response.body.error) {
+    throw (response.body);
+  }
+  return response.body.data;
 }
 
-export function unAuthenticatedCall(apiCall: any): SagaType {
+export function callApi(apiCall: any): SagaType {
   return call(setCallApi, apiCall);
 }

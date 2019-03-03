@@ -1,5 +1,4 @@
 // @flow
-import React from 'react';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import AppStack from './AppStack';
 import * as Pages from '../../pages';

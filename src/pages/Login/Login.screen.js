@@ -47,6 +47,7 @@ export default class Login extends React.Component<PropsType> {
                   placeholder="Mot de passe"
                   value={this.state.password}
                   secureTextEntry
+                  autoCapitalize="none"
                   onChangeText={password => this.setState({ password })}
                 />
               </Item>

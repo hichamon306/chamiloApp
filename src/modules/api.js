@@ -1,5 +1,6 @@
 // @flow
 import { delay } from 'redux-saga';
+import { Alert } from 'react-native';
 import { call, put, race } from 'redux-saga/effects';
 
 
@@ -16,8 +17,8 @@ export const catchApiExceptions = (saga: any, apiLoadingActionType: Object, time
       }
       yield put({ type: apiLoadingActionType.API_LOADING_STOP });
     } catch (error) {
-      // handleApiException(error);
-      console.log(error);
+      Alert.alert('', error.message);
+      // console.log(error);
       yield put({ type: apiLoadingActionType.API_LOADING_STOP });
     }
   };

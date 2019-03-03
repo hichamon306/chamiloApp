@@ -29,9 +29,9 @@ const initialState: AuthenticationStateType = {
 
 export function authenticationReducer(state: AuthenticationStateType = initialState, action: any) {
   switch (action.type) {
-    case actionTypes.API_LOADING_START:
+    case actionTypes.LOGIN_ACTION.API_LOADING_START:
       return { ...state, apiLoading: true };
-    case actionTypes.API_LOADING_STOP:
+    case actionTypes.LOGIN_ACTION.API_LOADING_STOP:
       return { ...state, apiLoading: false };
     case actionTypes.LOGIN_ACTION.SUCCESS:
       return {
