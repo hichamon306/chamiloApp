@@ -28,7 +28,7 @@ export default class Login extends React.Component<PropsType> {
 
     render() {
       return (
-        <Page>
+        <Page contentContainerStyle={styles.contentContainerStyle}>
           <View style={styles.container}>
             <Image resizeMode="contain" style={styles.logo} source={background} />
             <View style={styles.bg}>

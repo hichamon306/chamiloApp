@@ -41,7 +41,7 @@ class CustomHeader extends React.Component<PropsType> {
 
   render() {
     return (
-      <Header>
+      <Header {...this.props}>
         <Left>
           {this.props.left}
         </Left>

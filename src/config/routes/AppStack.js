@@ -1,30 +1,19 @@
-import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import * as Pages from '../../pages';
-import CustomFooter from '../../components/Footer';
+import BottomTabBar from './BottomTabBar';
 
-const AppStack = createBottomTabNavigator(
+const AppStack = createStackNavigator(
   {
-    Home: Pages.Home,
-    Courses: Pages.Courses,
+    TabBar: BottomTabBar,
+    WebView: Pages.CustomWebView,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'TabBar',
     headerMode: 'none',
     navigationOptions: {
       header: null,
     },
-    // eslint-disable-next-line react/prop-types
-    tabBarComponent: props => (
-      <CustomFooter
-        {...props}
-      />
-    ),
   },
 );
-
-AppStack.navigationOptions = () => ({
-  header: null,
-});
 
 export default AppStack;

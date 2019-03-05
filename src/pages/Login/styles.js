@@ -29,4 +29,7 @@ export default StyleSheet.create({
   logo: {
     width: '100%',
   },
+  contentContainerStyle: {
+    flexGrow: 1,
+  },
 });

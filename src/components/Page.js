@@ -11,7 +11,8 @@ import Header from './Header';
 type PropsType = {
   children: any,
   headerProps: any,
-  footerProps: any,
+  postHeader: any,
+  contentContainerStyle: any,
 }
 
 export default class Page extends React.Component<PropsType> {
@@ -21,7 +22,8 @@ export default class Page extends React.Component<PropsType> {
       <StyleProvider style={getTheme(chamilo)}>
         <Container>
           {headerProps && <Header {...headerProps} />}
-          <Content padder contentContainerStyle={{ flexGrow: 1 }}>
+          {this.props.postHeader}
+          <Content padder contentContainerStyle={this.props.contentContainerStyle}>
             {this.props.children}
           </Content>
         </Container>
