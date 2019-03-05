@@ -43,8 +43,8 @@ export default class Courses extends React.Component<PropsType> {
   _renderHeader(item, expanded) {
     return (
       <View style={styles.rowContainer}>
-        <Text>{item.name}</Text>
-        <Icon style={{ fontSize: 20 }} name={expanded ? 'arrow-up' : 'arrow-down'} />
+        <Text style={styles.accordionTitle}>{item.name}</Text>
+        <Icon style={styles.accordionIcon} name={expanded ? 'ios-arrow-up' : 'ios-arrow-down'} />
       </View>
     );
   }
