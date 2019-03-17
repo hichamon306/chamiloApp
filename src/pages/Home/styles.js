@@ -6,6 +6,17 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   shortcutContainer: {
-    marginVertical: 40,
+    marginVertical: 30,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  extraContainer: {
+    marginTop: 30,
+    marginBottom: 20,
+  },
+  extraValueContainer: {
+    flex: 0.65,
   },
 });

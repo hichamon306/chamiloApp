@@ -7,6 +7,8 @@ const BottomTabBar = createBottomTabNavigator(
   {
     Home: Pages.Home,
     Courses: Pages.Courses,
+    Catalogue: Pages.Catalogue,
+    Messages: Pages.Messages,
   },
   {
     initialRouteName: 'Home',

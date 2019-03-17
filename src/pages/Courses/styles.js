@@ -13,5 +13,7 @@ export default StyleSheet.create({
   },
   accordionTitle: {
     flex: 0.75,
+    fontWeight: '600',
+    color: '#007aff',
   },
 });

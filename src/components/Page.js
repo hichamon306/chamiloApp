@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationEvents } from 'react-navigation';
 import {
   StyleProvider,
   Container,
@@ -13,6 +14,10 @@ type PropsType = {
   headerProps: any,
   postHeader: any,
   contentContainerStyle: any,
+  onWillFocus: ()=> void,
+  onDidFocus: ()=> void,
+  onWillBlur: ()=> void,
+  onDidBlur: () => void,
 }
 
 export default class Page extends React.Component<PropsType> {
@@ -26,6 +31,12 @@ export default class Page extends React.Component<PropsType> {
           <Content padder contentContainerStyle={this.props.contentContainerStyle}>
             {this.props.children}
           </Content>
+          <NavigationEvents
+            onWillFocus={this.props.onWillFocus}
+            onDidFocus={this.props.onDidFocus}
+            onWillBlur={this.props.onWillBlur}
+            onDidBlur={this.props.onDidBlur}
+          />
         </Container>
       </StyleProvider>
     );

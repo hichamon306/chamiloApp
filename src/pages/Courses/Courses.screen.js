@@ -21,6 +21,8 @@ type PropsType = {
   courseList: any,
   sessionList: any,
   authenticationData: any,
+  getUserCourses: ()=> void,
+  getUserSessions: ()=> void,
 };
 
 type StateType = {
@@ -88,6 +90,11 @@ export default class Courses extends React.Component<PropsType> {
     );
   }
 
+  onWillFocus() {
+    this.props.getUserCourses();
+    this.props.getUserSessions();
+  }
+
   render() {
     const { currentTab } = this.state;
     const { courseList, sessionList } = this.props;
@@ -116,11 +123,15 @@ export default class Courses extends React.Component<PropsType> {
       </Segment>
     );
     return (
-      <Page postHeader={postHeader} footerProps={footerProps} headerProps={headerProps}>
+      <Page
+        postHeader={postHeader}
+        footerProps={footerProps}
+        headerProps={headerProps}
+        onWillFocus={() => this.onWillFocus()}
+      >
         {currentTab === 'sessions'
           && (
             <Accordion
-              expanded={0}
               dataArray={sessionList}
               animation={true}
               renderHeader={this._renderHeader}

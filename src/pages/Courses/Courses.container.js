@@ -1,7 +1,12 @@
 // @flow
 import { connect } from 'react-redux';
 import Courses from './Courses.screen';
-import { getSessionList, getCourseList } from '../../modules/courses';
+import {
+  getSessionList,
+  getCourseList,
+  getUserCoursesActionCreator,
+  getUserSessionsActionCreator,
+} from '../../modules/courses';
 import { getAuthenticationData } from '../../modules/authentication';
 
 const mapStateToProps = state => ({
@@ -10,4 +15,9 @@ const mapStateToProps = state => ({
   authenticationData: getAuthenticationData(state),
 });
 
-export default connect(mapStateToProps)(Courses);
+const mapDispatchToProps = ({
+  getUserCourses: getUserCoursesActionCreator,
+  getUserSessions: getUserSessionsActionCreator,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Courses);

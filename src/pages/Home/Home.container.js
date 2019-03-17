@@ -1,10 +1,14 @@
 // @flow
 import { connect } from 'react-redux';
 import Home from './Home.screen';
-import { getUserProfile } from '../../modules/profile';
+import { getUserProfile, getUserProfileActionCreator } from '../../modules/profile';
 
 const mapStateToProps = state => ({
   userProfile: getUserProfile(state),
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = ({
+  getUserProfil: getUserProfileActionCreator,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

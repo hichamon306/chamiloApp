@@ -18,23 +18,49 @@ import styles from './styles';
 type PropsType = {
   navigation: any,
   userProfile: any,
+  getUserProfil: ()=> void,
 };
 
 export default class Home extends React.Component<PropsType> {
+  renderProfilExtra(item, index) {
+    if (item.value === '') return null;
+    return (
+      <ListItem noIndent key={`extra_${index}`}>
+        <Left>
+          <Text style={styles.extraTitle}>{`${item.title}: `}</Text>
+        </Left>
+        <Right style={styles.extraValueContainer}>
+          <Text note style={styles.extraValue}>{item.value}</Text>
+        </Right>
+      </ListItem>
+    );
+  }
+
   render() {
     const { userProfile, navigation } = this.props;
     const footerProps = {
       navigation,
     };
     return (
-      <Page footerProps={footerProps} headerProps>
+      <Page
+        footerProps={footerProps}
+        headerProps
+        onWillFocus={() => this.props.getUserProfil()}
+      >
         {userProfile
           && (
-            <View style={styles.centredItems}>
-              <Thumbnail large source={{ uri: userProfile.pictureUri }} />
-              <H2>{userProfile.fullName}</H2>
-              <Text>{userProfile.username}</Text>
-              <Text>{userProfile.officialCode}</Text>
+            <View>
+              <View style={styles.centredItems}>
+                <Thumbnail large source={{ uri: userProfile.pictureUri }} />
+                <H2>{userProfile.fullName}</H2>
+                <Text>{userProfile.username}</Text>
+                <Text>{userProfile.officialCode}</Text>
+              </View>
+              <List style={styles.extraContainer}>
+                {userProfile.extra.map((item, index) => (
+                  this.renderProfilExtra(item, index)
+                ))}
+              </List>
             </View>
           )
         }

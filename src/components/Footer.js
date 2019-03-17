@@ -13,7 +13,6 @@ import chamilo from '../../native-base-theme/variables/chamilo';
 
 type PropsType = {
   navigation: any,
-  navigationState: any,
 };
 
 export default class CustomFooter extends React.Component<PropsType> {

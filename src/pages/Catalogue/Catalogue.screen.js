@@ -1,9 +1,5 @@
 import React from 'react';
 import { WebView } from 'react-native';
-import {
-  Button,
-  Icon,
-} from 'native-base';
 import Page from '../../components/Page';
 import styles from './styles';
 
@@ -12,16 +8,10 @@ type PropsType = {
   authenticationData: any,
 };
 
-export default class CustomWebView extends React.Component<PropsType> {
+export default class Catalogue extends React.Component<PropsType> {
   render() {
-    const headerProps = {
-      left: (
-        <Button onPress={() => this.props.navigation.goBack()} transparent>
-          <Icon name="arrow-back" />
-        </Button>),
-    };
-    const { authenticationData, navigation } = this.props;
-    const uri = navigation.getParam('uri', 'http://demo.ceusi.fr');
+    const { authenticationData } = this.props;
+    const uri = `${authenticationData.url}main/auth/courses.php`;
     const injectedJS = `
       document.getElementById('cm-header').style.display = "none";
       document.getElementsByTagName('footer')[0].style.display = "none";
@@ -35,7 +25,7 @@ export default class CustomWebView extends React.Component<PropsType> {
     return (
       <Page
         contentContainerStyle={styles.contentContainerStyle}
-        headerProps={headerProps}
+        headerProps
       >
         <WebView
           injectedJavaScript={injectedJS}

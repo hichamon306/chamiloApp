@@ -43,5 +43,15 @@ export const getUserSessions = (authenticationData: any) => (
     })
 );
 
+export const getMessages = (authenticationData: any) => (
+  request
+    .post(API_URL)
+    .send({
+      action: 'user_messages',
+      username: authenticationData.username,
+      api_key: authenticationData.apiKey,
+    })
+);
+
 
 export const addApiHeader = (apiCall: any) => apiCall.set('Content-Type', 'multipart/form-data').type('form');
