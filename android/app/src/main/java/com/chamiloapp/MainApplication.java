@@ -12,9 +12,11 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-
+import com.chamiloapp.CustomClientFactory;
 import java.util.Arrays;
 import java.util.List;
+import com.facebook.react.modules.network.OkHttpClientProvider;
+import okhttp3.OkHttpClient;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -50,6 +52,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    OkHttpClientProvider.setOkHttpClientFactory(new CustomClientFactory());
     SoLoader.init(this, /* native exopackage */ false);
   }
 }
