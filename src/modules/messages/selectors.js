@@ -1,2 +1,8 @@
 // @flow
-export const getMessageList = (state: any) => state.messages.messageList;
+import { MESSAGE_STATUS_UNREAD } from '../../config/constants';
+
+export const getMessagesReceivedList = (state: any) => state.messages.messagesReceived;
+export const getMessagesSentList = (state: any) => state.messages.messagesSent;
+
+export const getCountUnreadMessages =
+  (state: any) => state.messages.messagesReceived.filter(message => message.msgStatus === MESSAGE_STATUS_UNREAD).length;

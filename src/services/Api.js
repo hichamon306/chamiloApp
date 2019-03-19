@@ -43,11 +43,21 @@ export const getUserSessions = (authenticationData: any) => (
     })
 );
 
-export const getMessages = (authenticationData: any) => (
+export const getMessagesReceived = (authenticationData: any) => (
   request
     .post(API_URL)
     .send({
-      action: 'user_messages',
+      action: 'user_messages_received',
+      username: authenticationData.username,
+      api_key: authenticationData.apiKey,
+    })
+);
+
+export const getMessagesSent = (authenticationData: any) => (
+  request
+    .post(API_URL)
+    .send({
+      action: 'user_messages_sent',
       username: authenticationData.username,
       api_key: authenticationData.apiKey,
     })

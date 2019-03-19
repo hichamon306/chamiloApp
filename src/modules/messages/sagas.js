@@ -7,12 +7,24 @@ import { callApi } from '../ApiAuthorization';
 import { getAuthenticationData } from '../authentication';
 
 
-function* getMessages() {
+function* getMessagesReceived() {
   const authenticationData = yield select(getAuthenticationData);
-  const response = yield callApi(Api.getMessages(authenticationData));
-  yield put({ type: actionTypes.GET_USER_MESSAGES_ACTION.SUCCESS, messages: response });
+  const response = yield callApi(Api.getMessagesReceived(authenticationData));
+  yield put({ type: actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION.SUCCESS, messages: response });
 }
-export function* getMessagesSagas(): SagaType {
-  const requestActionType = actionTypes.GET_USER_MESSAGES_ACTION.REQUEST;
-  yield takeLatest(requestActionType, catchApiExceptions(getMessages, actionTypes.GET_USER_MESSAGES_ACTION));
+export function* getMessagesReceivedSagas(): SagaType {
+  const requestActionType = actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION.REQUEST;
+  yield takeLatest(requestActionType,
+    catchApiExceptions(getMessagesReceived, actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION));
+}
+
+function* getMessagesSent() {
+  const authenticationData = yield select(getAuthenticationData);
+  const response = yield callApi(Api.getMessagesSent(authenticationData));
+  yield put({ type: actionTypes.GET_USER_MESSAGES_SENT_ACTION.SUCCESS, messages: response });
+}
+export function* getMessagesSentSagas(): SagaType {
+  const requestActionType = actionTypes.GET_USER_MESSAGES_SENT_ACTION.REQUEST;
+  yield takeLatest(requestActionType,
+    catchApiExceptions(getMessagesSent, actionTypes.GET_USER_MESSAGES_SENT_ACTION));
 }

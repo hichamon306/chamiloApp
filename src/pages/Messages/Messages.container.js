@@ -1,14 +1,21 @@
 // @flow
 import { connect } from 'react-redux';
 import Messages from './Messages.screen';
-import { getMessageList, getUserMessagesActionCreator } from '../../modules/messages';
+import {
+  getMessagesReceivedList,
+  getMessagesSentList,
+  getUserMessagesReceivedActionCreator,
+  getUserMessagesSentActionCreator,
+} from '../../modules/messages';
 
 const mapStateToProps = state => ({
-  messages: getMessageList(state),
+  messagesReceived: getMessagesReceivedList(state),
+  messagesSent: getMessagesSentList(state),
 });
 
 const mapDispatchToProps = ({
-  getUserMessages: getUserMessagesActionCreator,
+  getUserMessagesReceived: getUserMessagesReceivedActionCreator,
+  getUserMessagesSent: getUserMessagesSentActionCreator,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Messages);

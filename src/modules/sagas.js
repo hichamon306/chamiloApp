@@ -4,7 +4,7 @@ import { loginSagas, logoutSagas } from './authentication';
 import { getProfileSagas } from './profile';
 import { loadDataSagas } from './dataLoader';
 import { getUserCoursesSagas, getUserSessionsSagas } from './courses';
-import { getMessagesSagas } from './messages';
+import { getMessagesReceivedSagas, getMessagesSentSagas } from './messages';
 
 export default function* rootSaga() {
   yield all([
@@ -15,6 +15,7 @@ export default function* rootSaga() {
     fork(loadDataSagas),
     fork(getUserCoursesSagas),
     fork(getUserSessionsSagas),
-    fork(getMessagesSagas),
+    fork(getMessagesReceivedSagas),
+    fork(getMessagesSentSagas),
   ]);
 }

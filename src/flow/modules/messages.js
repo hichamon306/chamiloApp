@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 
 declare type ProfileStateType = {
-    messageList: any,
+    messagesReceived: any,
+    messagesSent: any,
     apiLoading: boolean,
 }

@@ -5,4 +5,7 @@ export default StyleSheet.create({
   noMessage: {
     textAlign: 'center',
   },
+  unreadMessage: {
+    fontWeight: 'bold',
+  },
 });

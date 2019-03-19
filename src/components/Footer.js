@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   Footer,
   FooterTab,
@@ -10,12 +11,14 @@ import {
 } from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import chamilo from '../../native-base-theme/variables/chamilo';
+import { getCountUnreadMessages } from '../modules/messages';
 
 type PropsType = {
   navigation: any,
+  unreadMessagesCount: number,
 };
 
-export default class CustomFooter extends React.Component<PropsType> {
+class CustomFooter extends React.Component<PropsType> {
   navigate(routeName: string) {
     const { navigation } = this.props;
     navigation.navigate(routeName);
@@ -31,6 +34,7 @@ export default class CustomFooter extends React.Component<PropsType> {
       false,
     ];
     activeView[index] = true;
+    const { unreadMessagesCount } = this.props;
     return (
       <StyleProvider style={getTheme(chamilo)}>
         <Footer>
@@ -51,9 +55,18 @@ export default class CustomFooter extends React.Component<PropsType> {
               <Icon name="school" />
               <Text>Catalogue</Text>
             </Button>
-            <Button onPress={() => this.navigate('Messages')} active={activeView[3]} badge vertical>
-              <Badge><Text>51</Text></Badge>
-              <Icon active name="mail" />
+            <Button
+              onPress={() => this.navigate('Messages')}
+              active={activeView[3]}
+              badge={unreadMessagesCount > 0}
+              vertical
+            >
+              {unreadMessagesCount > 0
+                && (
+                  <Badge><Text>{unreadMessagesCount}</Text></Badge>
+                )
+              }
+              <Icon name="mail" />
               <Text>Messages</Text>
             </Button>
           </FooterTab>
@@ -62,3 +75,9 @@ export default class CustomFooter extends React.Component<PropsType> {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  unreadMessagesCount: getCountUnreadMessages(state),
+});
+
+export default connect(mapStateToProps)(CustomFooter);
