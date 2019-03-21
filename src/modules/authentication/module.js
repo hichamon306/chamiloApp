@@ -8,6 +8,12 @@ export const actionTypes = {
     API_LOADING_START: 'LOGIN_ACTION_API_LOADING_START',
     API_LOADING_STOP: 'LOGIN_ACTION_API_LOADING_STOP',
   },
+  REGISTER_DEVICE_TOKEN: {
+    SUCCESS: 'REGISTER_DEVICE_TOKEN_SUCCESS',
+    REQUEST: 'REGISTER_DEVICE_TOKEN_REQUEST',
+    API_LOADING_START: 'REGISTER_DEVICE_TOKEN_API_LOADING_START',
+    API_LOADING_STOP: 'REGISTER_DEVICE_TOKEN_API_LOADING_STOP',
+  },
 };
 
 export const loginActionCreator = (username: string, password: string) =>
@@ -15,6 +21,12 @@ export const loginActionCreator = (username: string, password: string) =>
     type: actionTypes.LOGIN_ACTION.REQUEST,
     username,
     password,
+  });
+
+export const registerDeviceTokenActionCreator = (fcmToken: string) =>
+  ({
+    type: actionTypes.REGISTER_DEVICE_TOKEN.REQUEST,
+    fcmToken,
   });
 
 export const logoutActionCreator = () =>

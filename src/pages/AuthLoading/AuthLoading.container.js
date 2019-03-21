@@ -1,11 +1,15 @@
 // @flow
 import { connect } from 'react-redux';
 import AuthLoading from './AuthLoading.screen';
-import { getAuthenticationData } from '../../modules/authentication';
+import { getAuthenticationData, registerDeviceTokenActionCreator } from '../../modules/authentication';
+import { getUserMessagesReceivedActionCreator } from '../../modules/messages';
 
 const mapStateToProps = state => ({
   authenticationData: getAuthenticationData(state),
 });
 
-
-export default connect(mapStateToProps)(AuthLoading);
+const mapDispatchToProps = ({
+  registerDeviceToken: registerDeviceTokenActionCreator,
+  getUserMessagesReceived: getUserMessagesReceivedActionCreator,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(AuthLoading);

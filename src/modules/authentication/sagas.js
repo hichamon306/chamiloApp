@@ -1,5 +1,5 @@
 // @flow
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, select } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 import { actionTypes } from '.';
 import { catchApiExceptions } from '../api';
@@ -7,7 +7,23 @@ import * as Api from '../../services/Api';
 import NavigationService from '../../services/navigator';
 import { callApi } from '../ApiAuthorization';
 import { globalActionTypes } from '../globalActionTypes';
+import { getAuthenticationData } from './selectors';
 
+
+function* registerDeviceToken(action: any) {
+  const authenticationData = yield select(getAuthenticationData);
+  const { fcmToken } = action;
+  yield callApi(Api.registerDeviceToken(authenticationData, fcmToken));
+  const data = {
+    ...authenticationData,
+    fcmToken,
+  };
+  yield put({ type: actionTypes.LOGIN_ACTION.SUCCESS, authenticationData: data });
+}
+export function* registerDeviceTokenSagas(): SagaType {
+  const requestActionType = actionTypes.REGISTER_DEVICE_TOKEN.REQUEST;
+  yield takeLatest(requestActionType, catchApiExceptions(registerDeviceToken, actionTypes.REGISTER_DEVICE_TOKEN));
+}
 
 function* login(action: any) {
   const authenticationData = {
@@ -23,7 +39,7 @@ function* login(action: any) {
     ...authenticationData,
   };
   yield put({ type: actionTypes.LOGIN_ACTION.SUCCESS, authenticationData: data });
-  yield NavigationService.navigate('Home');
+  yield NavigationService.navigate('AuthLoading');
   // yield put({ type: dataLoaderActionTypes.LOAD_DATA_ACTION.REQUEST });
 }
 export function* loginSagas(): SagaType {
