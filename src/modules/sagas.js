@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects';
 import { switchLanguageSagas } from './translation';
-import { loginSagas, logoutSagas } from './authentication';
+import { loginSagas, logoutSagas, registerDeviceTokenSagas } from './authentication';
 import { getProfileSagas } from './profile';
 import { loadDataSagas } from './dataLoader';
 import { getUserCoursesSagas, getUserSessionsSagas } from './courses';
@@ -17,5 +17,6 @@ export default function* rootSaga() {
     fork(getUserSessionsSagas),
     fork(getMessagesReceivedSagas),
     fork(getMessagesSentSagas),
+    fork(registerDeviceTokenSagas),
   ]);
 }

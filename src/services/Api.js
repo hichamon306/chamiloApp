@@ -63,5 +63,15 @@ export const getMessagesSent = (authenticationData: any) => (
     })
 );
 
+export const registerDeviceToken = (authenticationData: any, fcmToken: string) => (
+  request
+    .post(API_URL)
+    .send({
+      action: 'gcm_id',
+      username: authenticationData.username,
+      api_key: authenticationData.apiKey,
+      registration_id: fcmToken,
+    })
+);
 
 export const addApiHeader = (apiCall: any) => apiCall.set('Content-Type', 'multipart/form-data').type('form');

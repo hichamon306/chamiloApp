@@ -62,3 +62,5 @@ appcenter*
 
 #yarn
 yarn.lock
+**/google-services.json
+**/GoogleService-Info.plist
