@@ -49,6 +49,10 @@ export default class Courses extends React.Component<PropsType> {
     this.setState({ currentTab: tabName });
   }
 
+  openMessage(message: any) {
+    this.props.navigation.navigate('MessageView', { message, currentTab: this.state.currentTab });
+  }
+
   renderMessages() {
     const { currentTab } = this.state;
     const { messagesReceived, messagesSent } = this.props;
@@ -63,10 +67,11 @@ export default class Courses extends React.Component<PropsType> {
             )}
         <List>
           {messages.map((message, index) => (
-            <ListItem key={`message${index}`} avatar>
+            <ListItem key={`message${index}`} avatar onPress={() => this.openMessage(message)}>
               <Left>
                 <Thumbnail
                   small
+                  square
                   source={{ uri: currentTab === 'received' ? message.sender.pictureUri : message.receiver.pictureUri }}
                 />
               </Left>

@@ -28,3 +28,19 @@ export function* getMessagesSentSagas(): SagaType {
   yield takeLatest(requestActionType,
     catchApiExceptions(getMessagesSent, actionTypes.GET_USER_MESSAGES_SENT_ACTION));
 }
+
+
+function* updateMessageStatus(action: any) {
+  const authenticationData = yield select(getAuthenticationData);
+  const { messageId, msgStatus } = action;
+  if (msgStatus !== '0') {
+    yield callApi(Api.updateMessageStatus(authenticationData, messageId, msgStatus));
+    return;
+  }
+  yield callApi(Api.setMessageRead(authenticationData, messageId));
+}
+export function* updateMessageStatusSagas(): SagaType {
+  const requestActionType = actionTypes.UPDATE_MESSAGE_STATUS_ACTION.REQUEST;
+  yield takeLatest(requestActionType,
+    catchApiExceptions(updateMessageStatus, actionTypes.UPDATE_MESSAGE_STATUS_ACTION));
+}

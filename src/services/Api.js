@@ -74,4 +74,27 @@ export const registerDeviceToken = (authenticationData: any, fcmToken: string) =
     })
 );
 
+export const updateMessageStatus = (authenticationData: any, messageId: string, msgStatus: any) => (
+  request
+    .post(API_URL)
+    .send({
+      action: 'update_user_message',
+      username: authenticationData.username,
+      api_key: authenticationData.apiKey,
+      message_id: messageId,
+      msg_status: msgStatus,
+    })
+);
+
+export const setMessageRead = (authenticationData: any, messageId: string) => (
+  request
+    .post(API_URL)
+    .send({
+      action: 'set_message_read',
+      username: authenticationData.username,
+      api_key: authenticationData.apiKey,
+      message_id: messageId,
+    })
+);
+
 export const addApiHeader = (apiCall: any) => apiCall.set('Content-Type', 'multipart/form-data').type('form');

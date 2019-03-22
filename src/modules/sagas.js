@@ -4,7 +4,11 @@ import { loginSagas, logoutSagas, registerDeviceTokenSagas } from './authenticat
 import { getProfileSagas } from './profile';
 import { loadDataSagas } from './dataLoader';
 import { getUserCoursesSagas, getUserSessionsSagas } from './courses';
-import { getMessagesReceivedSagas, getMessagesSentSagas } from './messages';
+import {
+  getMessagesReceivedSagas,
+  getMessagesSentSagas,
+  updateMessageStatusSagas,
+} from './messages';
 
 export default function* rootSaga() {
   yield all([
@@ -18,5 +22,6 @@ export default function* rootSaga() {
     fork(getMessagesReceivedSagas),
     fork(getMessagesSentSagas),
     fork(registerDeviceTokenSagas),
+    fork(updateMessageStatusSagas),
   ]);
 }
