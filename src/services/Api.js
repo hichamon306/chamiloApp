@@ -97,4 +97,33 @@ export const setMessageRead = (authenticationData: any, messageId: string) => (
     })
 );
 
+export const getUsers = (authenticationData: any, search: string) => (
+  request
+    .post(API_URL)
+    .send({
+      action: 'message_users',
+      username: authenticationData.username,
+      api_key: authenticationData.apiKey,
+      q: search,
+    })
+);
+
+export const sendMessage = (authenticationData: any, messageObject: any) => {
+  const data = {
+    action: 'save_user_message',
+    username: authenticationData.username,
+    api_key: authenticationData.apiKey,
+    text: messageObject.message,
+    subject: messageObject.subject,
+  };
+
+  messageObject.users.forEach((user, index) => {
+    data[`receivers[${index}]`] = user;
+  });
+
+  return request
+    .post(API_URL)
+    .send(data);
+};
+
 export const addApiHeader = (apiCall: any) => apiCall.set('Content-Type', 'multipart/form-data').type('form');

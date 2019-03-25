@@ -24,6 +24,16 @@ type PropsType = {
 };
 
 export default class CustomWebView extends React.Component<PropsType> {
+  onPressReply(message) {
+    this.props.navigation.navigate('NewMessage', {
+      receiver: {
+        id: message.sender.id,
+        name: message.sender.completeName,
+      },
+      message,
+    });
+  }
+
   render() {
     const headerProps = {
       left: (
@@ -58,14 +68,17 @@ export default class CustomWebView extends React.Component<PropsType> {
             <Right />
           </ListItem>
         </List>
-        <HTMLView
-          value={message.content}
-          stylesheet={styles}
-        />
+        <View
+          style={styles.htmlView}
+        >
+          <HTMLView
+            value={message.content}
+          />
+        </View>
         <View style={styles.rowContainer}>
           {currentTab === 'received'
             && (
-              <Button iconLeft>
+              <Button onPress={() => this.onPressReply(message)} iconLeft>
                 <Icon type="FontAwesome" name="reply" />
                 <Text>Répondre</Text>
               </Button>

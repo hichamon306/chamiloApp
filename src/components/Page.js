@@ -13,6 +13,8 @@ type PropsType = {
   children: any,
   headerProps: any,
   postHeader: any,
+  postContent: any,
+  padder?: boolean,
   contentContainerStyle: any,
   onWillFocus: ()=> void,
   onDidFocus: ()=> void,
@@ -21,16 +23,21 @@ type PropsType = {
 }
 
 export default class Page extends React.Component<PropsType> {
+  static defaultProps = {
+    padder: true,
+  };
+
   render() {
-    const { headerProps } = this.props;
+    const { headerProps, padder } = this.props;
     return (
       <StyleProvider style={getTheme(chamilo)}>
         <Container>
           {headerProps && <Header {...headerProps} />}
           {this.props.postHeader}
-          <Content padder contentContainerStyle={this.props.contentContainerStyle}>
+          <Content padder={padder} contentContainerStyle={this.props.contentContainerStyle}>
             {this.props.children}
           </Content>
+          {this.props.postContent}
           <NavigationEvents
             onWillFocus={this.props.onWillFocus}
             onDidFocus={this.props.onDidFocus}

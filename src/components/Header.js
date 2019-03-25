@@ -20,6 +20,10 @@ type PropsType = {
 };
 
 class CustomHeader extends React.Component<PropsType> {
+  shouldComponentUpdate() {
+    return false;
+  }
+
   onLogout() {
     Alert.alert(
       'Information',

@@ -6,3 +6,4 @@ export { default as CustomWebView } from './CustomWebView';
 export { default as Catalogue } from './Catalogue';
 export { default as Messages } from './Messages';
 export { default as MessageView } from './MessageView';
+export { default as NewMessage } from './NewMessage';

@@ -20,6 +20,17 @@ export const actionTypes = {
     API_LOADING_START: 'UPDATE_MESSAGE_STATUS_API_LOADING_START',
     API_LOADING_STOP: 'UPDATE_MESSAGE_STATUS_API_LOADING_STOP',
   },
+  GET_USERS_ACTION: {
+    SUCCESS: 'GET_USERS_SUCCESS',
+    REQUEST: 'GET_USERS_REQUEST',
+    API_LOADING_START: 'GET_USERS_API_LOADING_START',
+    API_LOADING_STOP: 'GET_USERS_API_LOADING_STOP',
+  },
+  SEND_MESSAGE_ACTION: {
+    REQUEST: 'SEND_MESSAGE_REQUEST',
+    API_LOADING_START: 'SEND_MESSAGE_API_LOADING_START',
+    API_LOADING_STOP: 'SEND_MESSAGE_API_LOADING_STOP',
+  },
 };
 
 export const getUserMessagesReceivedActionCreator = () =>
@@ -39,17 +50,36 @@ export const updateMessageStatusActionCreator = (messageId: string, msgStatus: s
     msgStatus,
   });
 
+export const getUsersActionCreator = (search: string) => ({
+  type: actionTypes.GET_USERS_ACTION.REQUEST,
+  search,
+});
+
+export const sendMessageActionCreator = (messageObject: any, callback: any) => ({
+  type: actionTypes.SEND_MESSAGE_ACTION.REQUEST,
+  messageObject,
+  callback,
+});
+
+export const setUserListActionCreator = (userList: any) => ({
+  type: actionTypes.GET_USERS_ACTION.SUCCESS,
+  userList,
+});
+
 const initialState: MessagesStateType = {
   messagesReceived: [],
   messagesSent: [],
+  userList: [],
   apiLoading: false,
 };
 
 export function messagesReducer(state: MessagesStateType = initialState, action: any) {
   switch (action.type) {
+    case actionTypes.GET_USERS_ACTION.API_LOADING_START:
     case actionTypes.GET_USER_MESSAGES_SENT_ACTION.API_LOADING_START:
     case actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION.API_LOADING_START:
       return { ...state, apiLoading: true };
+    case actionTypes.GET_USERS_ACTION.API_LOADING_STOP:
     case actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION.API_LOADING_STOP:
     case actionTypes.GET_USER_MESSAGES_SENT_ACTION.API_LOADING_STOP:
       return { ...state, apiLoading: false };
@@ -62,6 +92,11 @@ export function messagesReducer(state: MessagesStateType = initialState, action:
       return {
         ...state,
         messagesSent: action.messages,
+      };
+    case actionTypes.GET_USERS_ACTION.SUCCESS:
+      return {
+        ...state,
+        userList: action.userList,
       };
     case globalActionTypes.LOGOUT_ACTION.SUCCESS:
       return initialState;

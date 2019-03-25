@@ -8,6 +8,8 @@ import {
   getMessagesReceivedSagas,
   getMessagesSentSagas,
   updateMessageStatusSagas,
+  getUsersStatusSagas,
+  sendMessageSagas,
 } from './messages';
 
 export default function* rootSaga() {
@@ -23,5 +25,7 @@ export default function* rootSaga() {
     fork(getMessagesSentSagas),
     fork(registerDeviceTokenSagas),
     fork(updateMessageStatusSagas),
+    fork(getUsersStatusSagas),
+    fork(sendMessageSagas),
   ]);
 }

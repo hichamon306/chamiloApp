@@ -11,7 +11,10 @@ import {
   Body,
   Right,
   View,
+  Fab,
+  Icon,
 } from 'native-base';
+import chamilo from '../../../native-base-theme/variables/chamilo';
 import Page from '../../components/Page';
 import 'moment/locale/fr';
 import styles from './styles';
@@ -119,12 +122,24 @@ export default class Courses extends React.Component<PropsType> {
         </Button>
       </Segment>
     );
+    const postContent = (
+      <Fab
+        direction="up"
+        containerStyle={{ }}
+        style={{ backgroundColor: chamilo.brandPrimary }}
+        position="bottomRight"
+        onPress={() => this.props.navigation.navigate('NewMessage')}
+      >
+        <Icon name="add" />
+      </Fab>
+    );
     return (
       <Page
         postHeader={postHeader}
         footerProps={footerProps}
         headerProps={headerProps}
         onWillFocus={() => this.onWillFocus()}
+        postContent={postContent}
       >
         { this.renderMessages() }
       </Page>

@@ -12,4 +12,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  htmlView: {
+    marginVertical: 30,
+    minHeight: 70,
+  },
 });

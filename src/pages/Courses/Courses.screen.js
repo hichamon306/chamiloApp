@@ -3,7 +3,7 @@ import {
   Button,
   Segment,
   Text,
-  Accordion,
+  Separator,
   Icon,
   View,
   List,
@@ -12,6 +12,7 @@ import {
   Left,
   Body,
   Right,
+  H2,
 } from 'native-base';
 import Page from '../../components/Page';
 import styles from './styles';
@@ -75,7 +76,7 @@ export default class Courses extends React.Component<PropsType> {
             onPress={() => this.navigateToCourse(course, idSession)}
           >
             <Left style={{ flex: 0 }}>
-              <Thumbnail square source={{ uri: course.pictureUrl || course.urlPicture }} />
+              <Thumbnail large square source={{ uri: course.pictureUrl || course.urlPicture }} />
             </Left>
             <Body>
               <Text>{course.title}</Text>
@@ -124,6 +125,7 @@ export default class Courses extends React.Component<PropsType> {
     );
     return (
       <Page
+        padder={false}
         postHeader={postHeader}
         footerProps={footerProps}
         headerProps={headerProps}
@@ -131,12 +133,17 @@ export default class Courses extends React.Component<PropsType> {
       >
         {currentTab === 'sessions'
           && (
-            <Accordion
-              dataArray={sessionList}
-              animation={true}
-              renderHeader={this._renderHeader}
-              renderContent={item => this._renderContent(item)}
-            />
+            <View>
+              {sessionList.map(session => (
+                <View key={`session${session.id}`}>
+                  <Separator style={styles.separator} bordered>
+                    <H2 style={styles.accordionTitle}>{session.name}</H2>
+                  </Separator>
+                  {this._renderContent(session.courses)}
+                </View>
+              ))
+              }
+            </View>
           )
         }
         {currentTab === 'courses'

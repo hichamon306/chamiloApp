@@ -7,6 +7,7 @@ const AppStack = createStackNavigator(
     TabBar: BottomTabBar,
     WebView: Pages.CustomWebView,
     MessageView: Pages.MessageView,
+    NewMessage: Pages.NewMessage,
   },
   {
     initialRouteName: 'TabBar',
