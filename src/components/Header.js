@@ -8,9 +8,11 @@ import {
   Body,
   Button,
   Icon,
+  Thumbnail,
 } from 'native-base';
 import { Alert } from 'react-native';
 import { logoutActionCreator } from '../modules/authentication';
+import headerLogo from '../../assets/images/headerLogo.png';
 
 type PropsType = {
     left: any,
@@ -50,7 +52,10 @@ class CustomHeader extends React.Component<PropsType> {
           {this.props.left}
         </Left>
         <Body>
-          {this.props.body}
+          {this.props.body
+            || (
+              <Thumbnail style={{ width: 224 }} resizeMode="contain" source={headerLogo} />
+            )}
         </Body>
         <Right>
           <Button

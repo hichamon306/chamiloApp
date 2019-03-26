@@ -74,15 +74,15 @@ export const registerDeviceToken = (authenticationData: any, fcmToken: string) =
     })
 );
 
-export const updateMessageStatus = (authenticationData: any, messageId: string, msgStatus: any) => (
+export const deleteUserMessage = (authenticationData: any, messageId: string, messageType: any) => (
   request
     .post(API_URL)
     .send({
-      action: 'update_user_message',
+      action: 'delete_user_message',
       username: authenticationData.username,
       api_key: authenticationData.apiKey,
       message_id: messageId,
-      msg_status: msgStatus,
+      msg_type: messageType,
     })
 );
 

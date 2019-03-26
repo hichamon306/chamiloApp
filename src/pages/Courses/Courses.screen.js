@@ -12,7 +12,7 @@ import {
   Left,
   Body,
   Right,
-  H2,
+  H3,
 } from 'native-base';
 import Page from '../../components/Page';
 import styles from './styles';
@@ -137,7 +137,7 @@ export default class Courses extends React.Component<PropsType> {
               {sessionList.map(session => (
                 <View key={`session${session.id}`}>
                   <Separator style={styles.separator} bordered>
-                    <H2 style={styles.accordionTitle}>{session.name}</H2>
+                    <H3 style={styles.accordionTitle}>{session.name}</H3>
                   </Separator>
                   {this._renderContent(session.courses)}
                 </View>

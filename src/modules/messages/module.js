@@ -14,6 +14,12 @@ export const actionTypes = {
     API_LOADING_START: 'GET_USER_MESSAGES_SENT_API_LOADING_START',
     API_LOADING_STOP: 'GET_USER_MESSAGES_SENT_API_LOADING_STOP',
   },
+  DELETE_USER_MESSAGE_ACTION: {
+    SUCCESS: 'DELETE_USER_MESSAGE_SUCCESS',
+    REQUEST: 'DELETE_USER_MESSAGE_REQUEST',
+    API_LOADING_START: 'DELETE_USER_MESSAGE_API_LOADING_START',
+    API_LOADING_STOP: 'DELETE_USER_MESSAGE_API_LOADING_STOP',
+  },
   UPDATE_MESSAGE_STATUS_ACTION: {
     SUCCESS: 'UPDATE_MESSAGE_STATUS_SUCCESS',
     REQUEST: 'UPDATE_MESSAGE_STATUS_REQUEST',
@@ -41,6 +47,14 @@ export const getUserMessagesReceivedActionCreator = () =>
 export const getUserMessagesSentActionCreator = () =>
   ({
     type: actionTypes.GET_USER_MESSAGES_SENT_ACTION.REQUEST,
+  });
+
+export const deleteUserMessageActionCreator = (messageId: string, msgType: string, callback: any) =>
+  ({
+    type: actionTypes.DELETE_USER_MESSAGE_ACTION.REQUEST,
+    messageId,
+    msgType,
+    callback,
   });
 
 export const updateMessageStatusActionCreator = (messageId: string, msgStatus: string) =>

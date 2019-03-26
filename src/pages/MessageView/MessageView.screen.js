@@ -1,6 +1,7 @@
 import React from 'react';
 import HTMLView from 'react-native-htmlview';
 import moment from 'moment';
+import { Alert } from 'react-native';
 import {
   Button,
   Icon,
@@ -13,6 +14,7 @@ import {
   Text,
   H1,
   View,
+  Toast,
 } from 'native-base';
 import Page from '../../components/Page';
 import styles from './styles';
@@ -21,6 +23,7 @@ import { MESSAGE_STATUS_NEW } from '../../config/constants';
 type PropsType = {
   navigation: any,
   updateMessageStatus: () => void,
+  deleteMessage: () => void,
 };
 
 export default class CustomWebView extends React.Component<PropsType> {
@@ -34,6 +37,29 @@ export default class CustomWebView extends React.Component<PropsType> {
     });
   }
 
+  onPressDelete(message, currentTab) {
+    Alert.alert(
+      '',
+      'Veuillez confirmer la suppression du message',
+      [
+        {
+          text: 'Confirmer',
+          onPress:
+            () => {
+              this.props.deleteMessage(message.id, currentTab, () => {
+                Toast.show({ text: 'Message supprimé !', type: 'success' });
+                this.props.navigation.goBack();
+              });
+            },
+        },
+        {
+          text: 'Annuler',
+          style: 'cancel',
+        },
+      ],
+    );
+  }
+
   render() {
     const headerProps = {
       left: (
@@ -42,7 +68,7 @@ export default class CustomWebView extends React.Component<PropsType> {
         </Button>),
     };
     const message = this.props.navigation.getParam('message', {});
-    const currentTab = this.props.navigation.getParam('currentTab', {});
+    const currentTab = this.props.navigation.getParam('currentTab', 'sent');
     return (
       <Page
         onWillFocus={() => this.props.updateMessageStatus(message.id, MESSAGE_STATUS_NEW)}
@@ -84,7 +110,11 @@ export default class CustomWebView extends React.Component<PropsType> {
               </Button>
             )
           }
-          <Button iconLeft danger>
+          <Button
+            iconLeft
+            danger
+            onPress={() => this.onPressDelete(message, currentTab)}
+          >
             <Icon type="FontAwesome" name="trash" />
             <Text>Supprimer</Text>
           </Button>

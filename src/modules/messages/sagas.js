@@ -31,7 +31,6 @@ export function* getMessagesSentSagas(): SagaType {
     catchApiExceptions(getMessagesSent, actionTypes.GET_USER_MESSAGES_SENT_ACTION));
 }
 
-
 function* updateMessageStatus(action: any) {
   const authenticationData = yield select(getAuthenticationData);
   const { messageId, msgStatus } = action;
@@ -47,6 +46,20 @@ export function* updateMessageStatusSagas(): SagaType {
     catchApiExceptions(updateMessageStatus, actionTypes.UPDATE_MESSAGE_STATUS_ACTION));
 }
 
+function* deleteUserMessage(action: any) {
+  const authenticationData = yield select(getAuthenticationData);
+  const { messageId, msgType } = action;
+  yield callApi(Api.deleteUserMessage(authenticationData, messageId, msgType));
+  if (action.callback) {
+    action.callback();
+  }
+}
+export function* deleteUserMessageSagas(): SagaType {
+  const requestActionType = actionTypes.DELETE_USER_MESSAGE_ACTION.REQUEST;
+  yield takeLatest(requestActionType,
+    catchApiExceptions(deleteUserMessage, actionTypes.DELETE_USER_MESSAGE_ACTION));
+}
+
 function* getUsers(action: any) {
   const authenticationData = yield select(getAuthenticationData);
   const userList = yield select(getUserList);
@@ -54,7 +67,7 @@ function* getUsers(action: any) {
   yield put({ type: actionTypes.GET_USERS_ACTION.SUCCESS, userList: uniqBy(response.concat(userList), 'id') });
 }
 
-export function* getUsersStatusSagas(): SagaType {
+export function* getUsersSagas(): SagaType {
   const requestActionType = actionTypes.GET_USERS_ACTION.REQUEST;
   yield takeLatest(requestActionType,
     catchApiExceptions(getUsers, actionTypes.GET_USERS_ACTION));

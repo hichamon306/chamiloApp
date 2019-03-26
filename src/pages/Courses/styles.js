@@ -1,5 +1,6 @@
 
 import { StyleSheet } from 'react-native';
+import chamilo from '../../../native-base-theme/variables/chamilo';
 
 export default StyleSheet.create({
   rowContainer: {
@@ -12,8 +13,9 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   accordionTitle: {
-    fontWeight: '600',
-    color: '#007aff',
+    color: chamilo.brandPrimary,
+    fontSize: chamilo.fontSizeBase,
+    fontWeight: 'bold',
   },
   separator: {
     height: 'auto',
