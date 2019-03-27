@@ -9,10 +9,13 @@ import {
   Button,
   Icon,
   Thumbnail,
+  StyleProvider,
 } from 'native-base';
 import { Alert } from 'react-native';
 import { logoutActionCreator } from '../modules/authentication';
 import headerLogo from '../../assets/images/headerLogo.png';
+import getTheme from '../../native-base-theme/components';
+import chamilo from '../../native-base-theme/variables/chamilo';
 
 type PropsType = {
     left: any,
@@ -47,25 +50,32 @@ class CustomHeader extends React.Component<PropsType> {
 
   render() {
     return (
-      <Header {...this.props}>
-        <Left>
-          {this.props.left}
-        </Left>
-        <Body>
-          {this.props.body
-            || (
-              <Thumbnail style={{ width: 224 }} resizeMode="contain" source={headerLogo} />
-            )}
-        </Body>
-        <Right>
-          <Button
-            onPress={() => this.onLogout()}
-            transparent
-          >
-            <Icon name="power" />
-          </Button>
-        </Right>
-      </Header>
+      <StyleProvider style={getTheme(chamilo)}>
+        <Header {...this.props}>
+          <Left>
+            {this.props.left}
+          </Left>
+          <Body>
+            {this.props.body
+              || (
+                <Thumbnail style={{ width: 224 }} resizeMode="contain" source={headerLogo} />
+              )}
+          </Body>
+          <Right>
+            <Button
+              onPress={() => this.onLogout()}
+              transparent
+            >
+              <Icon name="power" />
+            </Button>
+            <Button
+              transparent
+            >
+              <Icon name="settings" />
+            </Button>
+          </Right>
+        </Header>
+      </StyleProvider>
     );
   }
 }

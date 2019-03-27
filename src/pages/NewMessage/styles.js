@@ -31,4 +31,8 @@ export default StyleSheet.create({
   textArea: {
     flex: 1,
   },
+  messageInput: {
+    height: 180,
+    textAlignVertical: 'top',
+  },
 });

@@ -225,7 +225,7 @@ export default class NewMessage extends React.Component<PropsType> {
               onChangeText={value => this.setState({ message: value })}
               multiline
               numberOfLines={20}
-              style={{ height: 180 }}
+              style={styles.messageInput}
             />
           </Item>
           {form.message.error

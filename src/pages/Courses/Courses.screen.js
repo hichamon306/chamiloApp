@@ -99,38 +99,28 @@ export default class Courses extends React.Component<PropsType> {
   render() {
     const { currentTab } = this.state;
     const { courseList, sessionList } = this.props;
-    const footerProps = {
-      navigation: this.props.navigation,
-    };
-    const headerProps = {
-      hasSegment: true,
-    };
-    const postHeader = (
-      <Segment>
-        <Button
-          first
-          active={currentTab === 'courses'}
-          onPress={() => this.switchTab('courses')}
-        >
-          <Text>Cours</Text>
-        </Button>
-        <Button
-          last
-          active={currentTab === 'sessions'}
-          onPress={() => this.switchTab('sessions')}
-        >
-          <Text>Session</Text>
-        </Button>
-      </Segment>
-    );
     return (
       <Page
         padder={false}
-        postHeader={postHeader}
-        footerProps={footerProps}
-        headerProps={headerProps}
+        headerProps
         onWillFocus={() => this.onWillFocus()}
       >
+        <Segment>
+          <Button
+            first
+            active={currentTab === 'courses'}
+            onPress={() => this.switchTab('courses')}
+          >
+            <Text>Cours</Text>
+          </Button>
+          <Button
+            last
+            active={currentTab === 'sessions'}
+            onPress={() => this.switchTab('sessions')}
+          >
+            <Text>Session</Text>
+          </Button>
+        </Segment>
         {currentTab === 'sessions'
           && (
             <View>

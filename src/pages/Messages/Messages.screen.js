@@ -98,30 +98,6 @@ export default class Courses extends React.Component<PropsType> {
 
   render() {
     const { currentTab } = this.state;
-    const footerProps = {
-      navigation: this.props.navigation,
-    };
-    const headerProps = {
-      hasSegment: true,
-    };
-    const postHeader = (
-      <Segment>
-        <Button
-          first
-          active={currentTab === 'received'}
-          onPress={() => this.switchTab('received')}
-        >
-          <Text>Reçus</Text>
-        </Button>
-        <Button
-          last
-          active={currentTab === 'sent'}
-          onPress={() => this.switchTab('sent')}
-        >
-          <Text>Envoyés</Text>
-        </Button>
-      </Segment>
-    );
     const postContent = (
       <Fab
         direction="up"
@@ -135,12 +111,27 @@ export default class Courses extends React.Component<PropsType> {
     );
     return (
       <Page
-        postHeader={postHeader}
-        footerProps={footerProps}
-        headerProps={headerProps}
+        padder={false}
+        headerProps
         onWillFocus={() => this.onWillFocus()}
         postContent={postContent}
       >
+        <Segment>
+          <Button
+            first
+            active={currentTab === 'received'}
+            onPress={() => this.switchTab('received')}
+          >
+            <Text>Reçus</Text>
+          </Button>
+          <Button
+            last
+            active={currentTab === 'sent'}
+            onPress={() => this.switchTab('sent')}
+          >
+            <Text>Envoyés</Text>
+          </Button>
+        </Segment>
         { this.renderMessages() }
       </Page>
     );
