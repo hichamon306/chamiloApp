@@ -11,6 +11,7 @@ const AppStack = createStackNavigator(
     WebView: Pages.CustomWebView,
     MessageView: Pages.MessageView,
     NewMessage: Pages.NewMessage,
+    Settings: Pages.Settings,
   },
   {
     initialRouteName: 'TabBar',
@@ -21,6 +22,14 @@ const AppStack = createStackNavigator(
           <Button onPress={() => navigation.goBack()} transparent>
             <Icon name="arrow-back" />
           </Button>),
+        right: (
+          <Button
+            onPress={() => navigation.navigate('Settings')}
+            transparent
+          >
+            <Icon name="settings" />
+          </Button>
+        ),
       };
       return {
         header: <Header {...headerProps} />,

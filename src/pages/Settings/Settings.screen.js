@@ -8,11 +8,11 @@ type PropsType = {
   navigation: any,
 };
 
-export default class Home extends React.Component<PropsType> {
+export default class Settings extends React.Component<PropsType> {
   render() {
     return (
       <Page>
-        <Text>Accueil</Text>
+        <Text>Settings</Text>
       </Page>
     );
   }

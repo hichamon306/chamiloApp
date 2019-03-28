@@ -8,14 +8,31 @@ type PropsType = {
   authenticationData: any,
 };
 
+type StateType = {
+  uri: string,
+};
+
 export default class Catalogue extends React.Component<PropsType> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      uri: `${props.authenticationData.url}main/auth/courses.php`,
+    };
+  }
+
+  state: StateType;
+
+  reload() {
+    const uri = `${this.props.authenticationData.url}main/auth/courses.php`;
+    this.setState({ uri });
+  }
+
   render() {
     const { authenticationData } = this.props;
-    const uri = `${authenticationData.url}main/auth/courses.php`;
     const injectedJS = `
       document.getElementById('cm-header').style.display = "none";
       document.getElementsByTagName('footer')[0].style.display = "none";
-      var alerts = document.getElementsByClassName('alert');
+      var alerts = document.getElementsByClassName('alert-danger');
       if(alerts.length > 0) alerts[0].style.display = "none";
       document.getElementById('formLogin').style.display = "none";
       document.getElementById('formLogin_login').value='${authenticationData.username}';
@@ -26,10 +43,11 @@ export default class Catalogue extends React.Component<PropsType> {
       <Page
         contentContainerStyle={styles.contentContainerStyle}
         headerProps
+        onDidFocus={() => this.reload()}
       >
         <WebView
           injectedJavaScript={injectedJS}
-          source={{ uri }}
+          source={{ uri: this.state.uri }}
           startInLoadingState
         />
       </Page>

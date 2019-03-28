@@ -20,6 +20,7 @@
     "react": "16.6.3",
     "react-native": "0.58.4",
     "react-native-firebase": "^5.2.3",
+    "react-native-gesture-handler": "^1.1.0",
     "react-native-htmlview": "^0.13.0",
     "react-native-i18n": "^2.0.15",
     "react-native-multiple-select": "^0.4.4",

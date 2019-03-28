@@ -6,8 +6,6 @@ import {
   Left,
   Right,
   Body,
-  Button,
-  Icon,
   Thumbnail,
   StyleProvider,
 } from 'native-base';
@@ -62,17 +60,7 @@ class CustomHeader extends React.Component<PropsType> {
               )}
           </Body>
           <Right>
-            <Button
-              onPress={() => this.onLogout()}
-              transparent
-            >
-              <Icon name="power" />
-            </Button>
-            <Button
-              transparent
-            >
-              <Icon name="settings" />
-            </Button>
+            {this.props.right}
           </Right>
         </Header>
       </StyleProvider>

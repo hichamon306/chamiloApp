@@ -7,3 +7,5 @@ export { default as Catalogue } from './Catalogue';
 export { default as Messages } from './Messages';
 export { default as MessageView } from './MessageView';
 export { default as NewMessage } from './NewMessage';
+export { default as DrawerNavigation } from './DrawerNavigation';
+export { default as Settings } from './Settings';

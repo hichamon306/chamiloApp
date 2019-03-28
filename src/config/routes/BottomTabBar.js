@@ -5,9 +5,15 @@ import * as Pages from '../../pages';
 import CustomFooter from '../../components/Footer';
 import Header from '../../components/Header';
 
-const headerRight = (
-  <Button transparent>
+const getHeaderLeft = navigation => (
+  <Button onPress={() => navigation.toggleDrawer()} transparent>
     <Icon name="menu" />
+  </Button>
+);
+
+const getHeaderRight = navigation => (
+  <Button onPress={() => navigation.navigate('Settings')} transparent>
+    <Icon name="settings" />
   </Button>
 );
 
@@ -33,8 +39,13 @@ const BottomTabBar = createBottomTabNavigator(
   },
 );
 
-BottomTabBar.navigationOptions = () => ({
-  header: <Header left={headerRight} />,
+BottomTabBar.navigationOptions = ({ navigation }) => ({
+  header: (
+    <Header
+      left={getHeaderLeft(navigation)}
+      right={getHeaderRight(navigation)}
+    />
+  ),
 });
 
 export default BottomTabBar;

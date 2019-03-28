@@ -1,13 +1,13 @@
 // @flow
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import AppStack from './AppStack';
 import * as Pages from '../../pages';
 import AuthStack from './AuthStack';
+import DrawerStack from './DrawerStack';
 
 const RootStack = createSwitchNavigator(
   {
     AuthLoading: { screen: Pages.AuthLoading },
-    App: AppStack,
+    App: DrawerStack,
     Auth: AuthStack,
   },
   {
