@@ -6,3 +6,13 @@ export const getSessionList = (state: any) => {
   }
   return [];
 };
+
+export const getSessionCount = (state: any) => {
+  const sessionList = getSessionList(state);
+  return sessionList.length;
+};
+
+export const getCourseCount = (state: any) => {
+  const courseList = getCourseList(state);
+  return courseList.length;
+};

@@ -1,22 +1,31 @@
 
 import { StyleSheet } from 'react-native';
+import chamilo from '../../../native-base-theme/variables/chamilo';
 
 export default StyleSheet.create({
-  centredItems: {
-    alignItems: 'center',
-  },
-  shortcutContainer: {
-    marginVertical: 30,
-  },
-  rowContainer: {
-    flexDirection: 'row',
+  cardItem: {
     justifyContent: 'space-between',
   },
-  extraContainer: {
-    marginTop: 30,
-    marginBottom: 20,
+  card: {
+    flex: 3.5,
+    justifyContent: 'center',
   },
-  extraValueContainer: {
-    flex: 0.65,
+  contentContainerStyle: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  page: {
+    backgroundColor: '#F0EFF5',
+  },
+  value: {
+    fontSize: chamilo.fontSizeH1 * 3,
+    fontWeight: 'bold',
+    lineHeight: chamilo.fontSizeH1 * 3,
+    color: chamilo.brandPrimary,
+  },
+  label: {
+    lineHeight: chamilo.fontSizeH1 * 3,
+    marginLeft: 10,
+    color: chamilo.brandPrimary,
   },
 });

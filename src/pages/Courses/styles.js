@@ -20,4 +20,7 @@ export default StyleSheet.create({
   separator: {
     height: 'auto',
   },
+  segment: {
+    marginTop: 10,
+  },
 });

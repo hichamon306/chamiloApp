@@ -116,7 +116,7 @@ export default class Courses extends React.Component<PropsType> {
         onWillFocus={() => this.onWillFocus()}
         postContent={postContent}
       >
-        <Segment>
+        <Segment style={styles.segment}>
           <Button
             first
             active={currentTab === 'received'}

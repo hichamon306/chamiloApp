@@ -8,4 +8,7 @@ export default StyleSheet.create({
   unreadMessage: {
     fontWeight: 'bold',
   },
+  segment: {
+    marginTop: 10,
+  },
 });

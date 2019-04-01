@@ -31,11 +31,14 @@ type StateType = {
 };
 
 export default class Courses extends React.Component<PropsType> {
-  state: StateType;
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTab: props.navigation.getParam('currentTab', 'courses'),
+    };
+  }
 
-  state = {
-    currentTab: 'courses',
-  };
+  state: StateType;
 
   switchTab(tabName: string) {
     const { currentTab } = this.state;
@@ -105,7 +108,7 @@ export default class Courses extends React.Component<PropsType> {
         headerProps
         onWillFocus={() => this.onWillFocus()}
       >
-        <Segment>
+        <Segment style={styles.segment}>
           <Button
             first
             active={currentTab === 'courses'}

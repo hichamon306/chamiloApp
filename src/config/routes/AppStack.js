@@ -15,13 +15,19 @@ const AppStack = createStackNavigator(
   },
   {
     initialRouteName: 'TabBar',
+    headerMode: 'screen',
     defaultNavigationOptions: ({ navigation }) => {
       const { routeName } = navigation.state;
       const headerProps = {
-        left: routeName !== 'TabBar' && (
+        left: routeName !== 'TabBar' ? (
           <Button onPress={() => navigation.goBack()} transparent>
             <Icon name="arrow-back" />
-          </Button>),
+          </Button>)
+          : (
+            <Button onPress={() => navigation.toggleDrawer()} transparent>
+              <Icon name="menu" />
+            </Button>
+          ),
         right: (
           <Button
             onPress={() => navigation.navigate('Settings')}

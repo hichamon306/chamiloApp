@@ -105,7 +105,7 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: '#007aff',
+  brandPrimary: '#2E75A3',
   brandInfo: '#62B1F6',
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
@@ -142,20 +142,20 @@ export default {
   // FooterTab
   tabBarTextColor: '#737373',
   tabBarTextSize: 10,
-  activeTab: '#007aff',
-  sTabBarActiveTextColor: '#007aff',
-  tabBarActiveTextColor: '#2874F0',
+  activeTab: '#2E75A3',
+  sTabBarActiveTextColor: '#2E75A3',
+  tabBarActiveTextColor: '#2E75A3',
   tabActiveBgColor: '#cde1f9',
 
   // Header
-  toolbarBtnColor: '#007aff',
+  toolbarBtnColor: '#2E75A3',
   toolbarDefaultBg: '#F8F8F8',
   toolbarHeight: platform === 'ios' ? 64 : 56,
   toolbarSearchIconSize: platform === 'ios' ? 20 : 23,
   toolbarInputColor: '#CECDD2',
   searchBarHeight: platform === 'ios' ? 30 : 40,
   searchBarInputHeight: platform === 'ios' ? 30 : 50,
-  toolbarBtnTextColor: '#007aff',
+  toolbarBtnTextColor: '#2E75A3',
   iosStatusbar: 'dark-content',
   toolbarDefaultBorder: '#a7a6ab',
   get statusBarColor() {
@@ -202,7 +202,7 @@ export default {
   listItemPadding: platform === 'ios' ? 10 : 12,
   listNoteColor: '#808080',
   listNoteSize: 13,
-  listItemSelected: '#007aff',
+  listItemSelected: '#2E75A3',
 
   // Progress Bar
   defaultProgressColor: '#E4202D',
@@ -218,10 +218,10 @@ export default {
 
   // Segment
   segmentBackgroundColor: '#F8F8F8',
-  segmentActiveBackgroundColor: '#007aff',
-  segmentTextColor: '#007aff',
+  segmentActiveBackgroundColor: '#2E75A3',
+  segmentTextColor: '#2E75A3',
   segmentActiveTextColor: '#fff',
-  segmentBorderColor: '#007aff',
+  segmentBorderColor: '#2E75A3',
   segmentBorderColorMain: '#a7a6ab',
 
   // Spinner
@@ -231,9 +231,9 @@ export default {
   // Tab
   tabDefaultBg: '#F8F8F8',
   topTabBarTextColor: '#6b6b6b',
-  topTabBarActiveTextColor: '#007aff',
+  topTabBarActiveTextColor: '#2E75A3',
   topTabBarBorderColor: '#a7a6ab',
-  topTabBarActiveBorderColor: '#007aff',
+  topTabBarActiveBorderColor: '#2E75A3',
 
   // Tabs
   tabBgColor: '#F8F8F8',

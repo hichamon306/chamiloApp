@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert, SafeAreaView } from 'react-native';
 import {
   Text,
   Thumbnail,
@@ -68,37 +68,39 @@ export default class Home extends React.Component<PropsType> {
         headerProps
         onWillFocus={() => this.props.getUserProfil()}
       >
-        <Button style={styles.closeButton} transparent onPress={() => this.props.navigation.toggleDrawer()}>
-          <Icon name="md-close" />
-        </Button>
-        {userProfile
-          && (
-            <View>
-              <View style={styles.centredItems}>
-                <Thumbnail large source={{ uri: userProfile.pictureUri }} />
-                <H2>{userProfile.fullName}</H2>
-                <Text>{userProfile.username}</Text>
-                <Text>{userProfile.officialCode}</Text>
+        <SafeAreaView>
+          <Button style={styles.closeButton} transparent onPress={() => this.props.navigation.toggleDrawer()}>
+            <Icon name="md-close" />
+          </Button>
+          {userProfile
+            && (
+              <View>
+                <View style={styles.centredItems}>
+                  <Thumbnail large source={{ uri: userProfile.pictureUri }} />
+                  <H2>{userProfile.fullName}</H2>
+                  <Text>{userProfile.username}</Text>
+                  <Text>{userProfile.officialCode}</Text>
+                </View>
+                <List style={styles.extraContainer}>
+                  {userProfile.extra.map((item, index) => (
+                    this.renderProfilExtra(item, index)
+                  ))}
+                </List>
               </View>
-              <List style={styles.extraContainer}>
-                {userProfile.extra.map((item, index) => (
-                  this.renderProfilExtra(item, index)
-                ))}
-              </List>
-            </View>
-          )
-        }
-        <ListItem last icon onPress={() => this.onLogout()}>
-          <Left>
-            <Button danger>
-              <Icon active name="power" />
-            </Button>
-          </Left>
-          <Body>
-            <Text>Déconnexion</Text>
-          </Body>
-          <Right />
-        </ListItem>
+            )
+          }
+          <ListItem last icon onPress={() => this.onLogout()}>
+            <Left>
+              <Button danger>
+                <Icon active name="power" />
+              </Button>
+            </Left>
+            <Body>
+              <Text>Déconnexion</Text>
+            </Body>
+            <Right />
+          </ListItem>
+        </SafeAreaView>
       </Page>
     );
   }

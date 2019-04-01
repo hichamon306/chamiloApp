@@ -15,6 +15,7 @@ type PropsType = {
   postContent: any,
   padder?: boolean,
   contentContainerStyle: any,
+  style: any,
   onWillFocus: ()=> void,
   onDidFocus: ()=> void,
   onWillBlur: ()=> void,
@@ -32,7 +33,7 @@ export default class Page extends React.Component<PropsType> {
       <StyleProvider style={getTheme(chamilo)}>
         <Container>
           {this.props.postHeader}
-          <Content padder={padder} contentContainerStyle={this.props.contentContainerStyle}>
+          <Content padder={padder} style={this.props.style} contentContainerStyle={this.props.contentContainerStyle}>
             {this.props.children}
           </Content>
           {this.props.postContent}
