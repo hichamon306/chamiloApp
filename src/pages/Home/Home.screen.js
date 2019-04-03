@@ -15,6 +15,8 @@ type PropsType = {
   sessionCount: number,
   courseCount: number,
   unreadMessagesCount: number,
+  getUserCourses: () => void,
+  getUserSessions: () => void,
 };
 
 export default class Home extends React.Component<PropsType> {
@@ -22,10 +24,19 @@ export default class Home extends React.Component<PropsType> {
     this.props.navigation.navigate(routeName, params);
   }
 
+  loadData() {
+    this.props.getUserCourses();
+    this.props.getUserSessions();
+  }
+
   render() {
     const { unreadMessagesCount, courseCount, sessionCount } = this.props;
     return (
-      <Page contentContainerStyle={styles.contentContainerStyle} style={styles.page}>
+      <Page
+        onWillFocus={() => this.loadData()}
+        contentContainerStyle={styles.contentContainerStyle}
+        style={styles.page}
+      >
         <Card style={styles.card}>
           <TouchableOpacity
             onPress={() => this.navigateTo('Courses', { currentTab: 'sessions' })}

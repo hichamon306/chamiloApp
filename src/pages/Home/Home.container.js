@@ -2,7 +2,12 @@
 import { connect } from 'react-redux';
 import Home from './Home.screen';
 import { getCountUnreadMessages } from '../../modules/messages';
-import { getSessionCount, getCourseCount } from '../../modules/courses';
+import {
+  getSessionCount,
+  getCourseCount,
+  getUserCoursesActionCreator,
+  getUserSessionsActionCreator,
+} from '../../modules/courses';
 
 const mapStateToProps = state => ({
   unreadMessagesCount: getCountUnreadMessages(state),
@@ -10,4 +15,9 @@ const mapStateToProps = state => ({
   courseCount: getCourseCount(state),
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = ({
+  getUserCourses: getUserCoursesActionCreator,
+  getUserSessions: getUserSessionsActionCreator,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

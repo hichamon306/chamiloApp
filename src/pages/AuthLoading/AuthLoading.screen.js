@@ -7,6 +7,8 @@ type PropsType = {
   authenticationData: any,
   registerDeviceToken: () => void,
   getUserMessagesReceived: () => void,
+  getUserCourses: () => void,
+  getUserSessions: () => void,
 };
 
 const styles = StyleSheet.create({
@@ -52,6 +54,8 @@ class AuthLoading extends React.Component<PropsType> {
       const { title, body } = notification;
       console.log(title, body);
       this.props.getUserMessagesReceived();
+      this.props.getUserCourses();
+      this.props.getUserSessions();
       // this.navigateToMessages();
     });
     /*
