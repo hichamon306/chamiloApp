@@ -5,13 +5,13 @@ import {
   FooterTab,
   Button,
   Icon,
-  Text,
   Badge,
   StyleProvider,
 } from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import chamilo from '../../native-base-theme/variables/chamilo';
 import { getCountUnreadMessages } from '../modules/messages';
+import Text from './Text';
 
 type PropsType = {
   navigation: any,
@@ -45,15 +45,15 @@ class CustomFooter extends React.Component<PropsType> {
               onPress={() => this.navigate('Home')}
             >
               <Icon name="home" />
-              <Text>Accueil</Text>
+              <Text>home</Text>
             </Button>
             <Button onPress={() => this.navigate('Courses')} active={activeView[1]} vertical>
               <Icon name="book" />
-              <Text>Cours</Text>
+              <Text>courses</Text>
             </Button>
             <Button onPress={() => this.navigate('Catalogue')} active={activeView[2]} vertical>
               <Icon name="school" />
-              <Text>Catalogue</Text>
+              <Text>catalog</Text>
             </Button>
             <Button
               onPress={() => this.navigate('Messages')}
@@ -67,7 +67,7 @@ class CustomFooter extends React.Component<PropsType> {
                 )
               }
               <Icon name="mail" />
-              <Text>Messages</Text>
+              <Text>messages</Text>
             </Button>
           </FooterTab>
         </Footer>

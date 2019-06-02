@@ -11,17 +11,18 @@ import {
   Left,
   Body,
   Right,
-  Text,
-  H1,
   View,
   Toast,
 } from 'native-base';
 import Page from '../../components/Page';
+import { Text } from '../../components';
 import styles from './styles';
 import { MESSAGE_STATUS_NEW } from '../../config/constants';
+import translate from '../../services/translate';
 
 type PropsType = {
   navigation: any,
+  currentLanguage: string,
   updateMessageStatus: () => void,
   deleteMessage: () => void,
 };
@@ -38,22 +39,23 @@ export default class CustomWebView extends React.Component<PropsType> {
   }
 
   onPressDelete(message, currentTab) {
+    const { currentLanguage } = this.props;
     Alert.alert(
       '',
-      'Veuillez confirmer la suppression du message',
+      translate('confirmDeleteMessage', null, currentLanguage),
       [
         {
-          text: 'Confirmer',
+          text: translate('confirm', null, currentLanguage),
           onPress:
             () => {
               this.props.deleteMessage(message.id, currentTab, () => {
-                Toast.show({ text: 'Message supprimé !', type: 'success' });
+                Toast.show({ text: translate('messageDeleted', null, currentLanguage), type: 'success' });
                 this.props.navigation.goBack();
               });
             },
         },
         {
-          text: 'Annuler',
+          text: translate('cancel', null, currentLanguage),
           style: 'cancel',
         },
       ],
@@ -84,10 +86,10 @@ export default class CustomWebView extends React.Component<PropsType> {
               />
             </Left>
             <Body>
-              <H1>
+              <Text skipTranslation style={styles.user}>
                 {currentTab === 'received' ? message.sender.completeName : message.receiver.completeName}
-              </H1>
-              <Text note>
+              </Text>
+              <Text skipTranslation note>
                 {`${message.title} - ${moment(message.sendDate).fromNow()}`}
               </Text>
             </Body>
@@ -106,7 +108,7 @@ export default class CustomWebView extends React.Component<PropsType> {
             && (
               <Button onPress={() => this.onPressReply(message)} iconLeft>
                 <Icon type="FontAwesome" name="reply" />
-                <Text>Répondre</Text>
+                <Text>reply</Text>
               </Button>
             )
           }
@@ -116,7 +118,7 @@ export default class CustomWebView extends React.Component<PropsType> {
             onPress={() => this.onPressDelete(message, currentTab)}
           >
             <Icon type="FontAwesome" name="trash" />
-            <Text>Supprimer</Text>
+            <Text>delete</Text>
           </Button>
         </View>
       </Page>

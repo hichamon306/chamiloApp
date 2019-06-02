@@ -5,10 +5,15 @@ import {
   updateMessageStatusActionCreator,
   deleteUserMessageActionCreator,
 } from '../../modules/messages';
+import { getCurrentLanguage } from '../../modules/translation';
 
 const mapDispatchToProps = ({
   updateMessageStatus: updateMessageStatusActionCreator,
   deleteMessage: deleteUserMessageActionCreator,
 });
 
-export default connect(null, mapDispatchToProps)(MessageView);
+const mapStateToProps = state => ({
+  currentLanguage: getCurrentLanguage(state),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageView);

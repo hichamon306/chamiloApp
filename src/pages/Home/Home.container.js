@@ -1,7 +1,10 @@
 // @flow
 import { connect } from 'react-redux';
 import Home from './Home.screen';
-import { getCountUnreadMessages } from '../../modules/messages';
+import {
+  getCountUnreadMessages,
+  getUserMessagesReceivedActionCreator,
+} from '../../modules/messages';
 import {
   getSessionCount,
   getCourseCount,
@@ -18,6 +21,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = ({
   getUserCourses: getUserCoursesActionCreator,
   getUserSessions: getUserSessionsActionCreator,
+  getUserMessagesReceived: getUserMessagesReceivedActionCreator,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

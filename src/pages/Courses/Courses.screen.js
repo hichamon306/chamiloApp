@@ -1,21 +1,24 @@
 import React from 'react';
 import {
+  View,
+} from 'react-native';
+import {
   Button,
   Segment,
-  Text,
-  Separator,
   Icon,
-  View,
   List,
   ListItem,
   Thumbnail,
   Left,
   Body,
   Right,
-  H3,
+  Accordion,
+  Card,
 } from 'native-base';
 import Page from '../../components/Page';
 import styles from './styles';
+import courseImage from '../../../assets/images/course.png';
+import { Text } from '../../components';
 
 type PropsType = {
   navigation: any,
@@ -48,10 +51,12 @@ export default class Courses extends React.Component<PropsType> {
 
   _renderHeader(item, expanded) {
     return (
-      <View style={styles.rowContainer}>
-        <Text style={styles.accordionTitle}>{item.name}</Text>
-        <Icon style={styles.accordionIcon} name={expanded ? 'ios-arrow-up' : 'ios-arrow-down'} />
-      </View>
+      <Card>
+        <View style={styles.rowContainer}>
+          <Text skipTranslation style={styles.accordionTitle}>{item.name}</Text>
+          <Icon style={styles.accordionIcon} name={expanded ? 'ios-arrow-up' : 'ios-arrow-down'} />
+        </View>
+      </Card>
     );
   }
 
@@ -72,24 +77,27 @@ export default class Courses extends React.Component<PropsType> {
     }
     return (
       <List>
-        {tabItems.map((course, index) => (
-          <ListItem
-            key={index}
-            Thumbnail
-            onPress={() => this.navigateToCourse(course, idSession)}
-          >
-            <Left style={{ flex: 0 }}>
-              <Thumbnail large square source={{ uri: course.pictureUrl || course.urlPicture }} />
-            </Left>
-            <Body>
-              <Text>{course.title}</Text>
-              <Text note>{course.code}</Text>
-            </Body>
-            <Right>
-              <Icon name="add" />
-            </Right>
-          </ListItem>
-        ))}
+        {tabItems.map((course, index) => {
+          const imageURI = course.pictureUrl || course.urlPicture;
+          return (
+            <ListItem
+              key={index}
+              Thumbnail
+              onPress={() => this.navigateToCourse(course, idSession)}
+            >
+              <Left style={{ flex: 0 }}>
+                <Thumbnail large square source={imageURI ? { uri: imageURI } : courseImage} />
+              </Left>
+              <Body>
+                <Text skipTranslation>{course.title}</Text>
+                <Text skipTranslation note>{course.code}</Text>
+              </Body>
+              <Right>
+                <Icon name="add" />
+              </Right>
+            </ListItem>
+          );
+        })}
       </List>
     );
   }
@@ -102,41 +110,39 @@ export default class Courses extends React.Component<PropsType> {
   render() {
     const { currentTab } = this.state;
     const { courseList, sessionList } = this.props;
+    const segment = (
+      <Segment style={styles.segment}>
+        <Button
+          first
+          active={currentTab === 'courses'}
+          onPress={() => this.switchTab('courses')}
+        >
+          <Text>myCourses</Text>
+        </Button>
+        <Button
+          last
+          active={currentTab === 'sessions'}
+          onPress={() => this.switchTab('sessions')}
+        >
+          <Text>mySessions</Text>
+        </Button>
+      </Segment>
+    );
     return (
       <Page
-        padder={false}
-        headerProps
         onWillFocus={() => this.onWillFocus()}
+        postHeader={segment}
       >
-        <Segment style={styles.segment}>
-          <Button
-            first
-            active={currentTab === 'courses'}
-            onPress={() => this.switchTab('courses')}
-          >
-            <Text>Cours</Text>
-          </Button>
-          <Button
-            last
-            active={currentTab === 'sessions'}
-            onPress={() => this.switchTab('sessions')}
-          >
-            <Text>Session</Text>
-          </Button>
-        </Segment>
         {currentTab === 'sessions'
-          && (
-            <View>
-              {sessionList.map(session => (
-                <View key={`session${session.id}`}>
-                  <Separator style={styles.separator} bordered>
-                    <H3 style={styles.accordionTitle}>{session.name}</H3>
-                  </Separator>
-                  {this._renderContent(session.courses)}
-                </View>
-              ))
-              }
-            </View>
+          &&
+          (
+            <Accordion
+              dataArray={sessionList}
+              animation={true}
+              style={styles.accordion}
+              renderHeader={this._renderHeader}
+              renderContent={item => this._renderContent(item)}
+            />
           )
         }
         {currentTab === 'courses'

@@ -4,16 +4,18 @@ import {
   Input,
   Button,
   Icon,
-  Text,
 } from 'native-base';
 import { Image, View } from 'react-native';
 import styles from './styles';
 import background from '../../../assets/images/logo.png';
 import Page from '../../components/Page';
+import { Text } from '../../components';
+import translate from '../../services/translate';
 
 type PropsType = {
   navigation: any,
   login: () => void,
+  currentLanguage: string,
 };
 
 export default class Login extends React.Component<PropsType> {
@@ -27,6 +29,7 @@ export default class Login extends React.Component<PropsType> {
     };
 
     render() {
+      const { currentLanguage } = this.props;
       return (
         <Page contentContainerStyle={styles.contentContainerStyle}>
           <View style={styles.container}>
@@ -35,7 +38,7 @@ export default class Login extends React.Component<PropsType> {
               <Item>
                 <Icon active name="person" />
                 <Input
-                  placeholder="Identifiant"
+                  placeholder={translate('username', null, currentLanguage)}
                   autoCapitalize="none"
                   value={this.state.username}
                   onChangeText={username => this.setState({ username })}
@@ -44,7 +47,7 @@ export default class Login extends React.Component<PropsType> {
               <Item>
                 <Icon active name="unlock" />
                 <Input
-                  placeholder="Mot de passe"
+                  placeholder={translate('password', null, currentLanguage)}
                   value={this.state.password}
                   secureTextEntry
                   autoCapitalize="none"
@@ -55,13 +58,13 @@ export default class Login extends React.Component<PropsType> {
                 style={styles.btn}
                 onPress={() => this.props.login(this.state.username, this.state.password)}
               >
-                <Text>Connexion</Text>
+                <Text>login</Text>
               </Button>
               <Button
                 transparent
                 style={styles.btn}
               >
-                <Text>Inscription</Text>
+                <Text>signin</Text>
               </Button>
             </View>
           </View>

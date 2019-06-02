@@ -6,7 +6,6 @@ import {
   Item,
   Label,
   Input,
-  Text,
   Toast,
 } from 'native-base';
 import moment from 'moment';
@@ -14,6 +13,7 @@ import { clone } from 'lodash';
 import MultiSelect from '../../components/MultiSelect';
 import chamilo from '../../../native-base-theme/variables/chamilo';
 import Page from '../../components/Page';
+import Text from '../../components/Text';
 import styles from './styles';
 
 type PropsType = {
@@ -237,7 +237,7 @@ export default class NewMessage extends React.Component<PropsType> {
           }
         </Form>
         <Button onPress={() => this.onSubmit()} style={styles.submit} block>
-          <Text>Envoyer</Text>
+          <Text>send</Text>
         </Button>
       </Page>
     );

@@ -10,5 +10,6 @@ export default StyleSheet.create({
   },
   segment: {
     marginTop: 10,
+    backgroundColor: 'transparent',
   },
 });

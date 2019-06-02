@@ -17,6 +17,7 @@
     "babel-eslint": "^10.0.1",
     "moment": "^2.24.0",
     "native-base": "^2.11.0",
+    "numeral": "^2.0.6",
     "react": "16.6.3",
     "react-native": "0.58.4",
     "react-native-firebase": "^5.2.3",

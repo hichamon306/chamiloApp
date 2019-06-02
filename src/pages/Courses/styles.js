@@ -11,16 +11,24 @@ export default StyleSheet.create({
   },
   accordionIcon: {
     fontSize: 20,
+    color: chamilo.tabBarTextColor,
   },
   accordionTitle: {
     color: chamilo.brandPrimary,
     fontSize: chamilo.fontSizeBase,
     fontWeight: 'bold',
+    flex: 0.95,
   },
   separator: {
     height: 'auto',
+    backgroundColor: '#FFF',
+    borderWidth: 0,
   },
   segment: {
     marginTop: 10,
+    backgroundColor: 'transparent',
+  },
+  accordion: {
+    borderWidth: 0,
   },
 });

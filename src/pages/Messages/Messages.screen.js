@@ -3,7 +3,6 @@ import moment from 'moment';
 import {
   Button,
   Segment,
-  Text,
   List,
   ListItem,
   Left,
@@ -16,6 +15,7 @@ import {
 } from 'native-base';
 import chamilo from '../../../native-base-theme/variables/chamilo';
 import Page from '../../components/Page';
+import { Text } from '../../components';
 import 'moment/locale/fr';
 import styles from './styles';
 import { MESSAGE_STATUS_UNREAD } from '../../config/constants';
@@ -65,7 +65,7 @@ export default class Courses extends React.Component<PropsType> {
         {messages.length === 0
             && (
               <Text style={styles.noMessage} note>
-                {'Vous n\'avez pas de message'}
+                noNewMessage
               </Text>
             )}
         <List>
@@ -79,15 +79,15 @@ export default class Courses extends React.Component<PropsType> {
                 />
               </Left>
               <Body>
-                <Text style={message.msgStatus === MESSAGE_STATUS_UNREAD ? styles.unreadMessage : null}>
+                <Text skipTranslation style={message.msgStatus === MESSAGE_STATUS_UNREAD ? styles.unreadMessage : null}>
                   {currentTab === 'received' ? message.sender.completeName : message.receiver.completeName}
                 </Text>
-                <Text note>
+                <Text skipTranslation note>
                   {`${message.title} - ${message.content.replace(/(<([^>]+)>)/ig, '').trim().substr(0, 30)}...`}
                 </Text>
               </Body>
               <Right>
-                <Text note>{moment(message.sendDate).fromNow()}</Text>
+                <Text skipTranslation note>{moment(message.sendDate).fromNow()}</Text>
               </Right>
             </ListItem>
           ))}
@@ -109,29 +109,32 @@ export default class Courses extends React.Component<PropsType> {
         <Icon name="add" />
       </Fab>
     );
+    const segment = (
+      <Segment style={styles.segment}>
+        <Button
+          first
+          active={currentTab === 'received'}
+          onPress={() => this.switchTab('received')}
+        >
+          <Text>received</Text>
+        </Button>
+        <Button
+          last
+          active={currentTab === 'sent'}
+          onPress={() => this.switchTab('sent')}
+        >
+          <Text>sent</Text>
+        </Button>
+      </Segment>
+    );
     return (
       <Page
         padder={false}
         headerProps
         onWillFocus={() => this.onWillFocus()}
         postContent={postContent}
+        postHeader={segment}
       >
-        <Segment style={styles.segment}>
-          <Button
-            first
-            active={currentTab === 'received'}
-            onPress={() => this.switchTab('received')}
-          >
-            <Text>Reçus</Text>
-          </Button>
-          <Button
-            last
-            active={currentTab === 'sent'}
-            onPress={() => this.switchTab('sent')}
-          >
-            <Text>Envoyés</Text>
-          </Button>
-        </Segment>
         { this.renderMessages() }
       </Page>
     );

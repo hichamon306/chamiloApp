@@ -1,7 +1,6 @@
 import React from 'react';
 import { Alert, SafeAreaView } from 'react-native';
 import {
-  Text,
   Thumbnail,
   List,
   ListItem,
@@ -14,6 +13,7 @@ import {
   Body,
 } from 'native-base';
 import Page from '../../components/Page';
+import { Text } from '../../components';
 import styles from './styles';
 
 type PropsType = {
@@ -29,10 +29,10 @@ export default class Home extends React.Component<PropsType> {
     return (
       <ListItem noIndent key={`extra_${index}`}>
         <Left>
-          <Text style={styles.extraTitle}>{`${item.title}: `}</Text>
+          <Text skipTranslation style={styles.extraTitle}>{`${item.title}: `}</Text>
         </Left>
         <Right style={styles.extraValueContainer}>
-          <Text note style={styles.extraValue}>{item.value}</Text>
+          <Text skipTranslation note style={styles.extraValue}>{item.value}</Text>
         </Right>
       </ListItem>
     );
@@ -78,8 +78,8 @@ export default class Home extends React.Component<PropsType> {
                 <View style={styles.centredItems}>
                   <Thumbnail large source={{ uri: userProfile.pictureUri }} />
                   <H2>{userProfile.fullName}</H2>
-                  <Text>{userProfile.username}</Text>
-                  <Text>{userProfile.officialCode}</Text>
+                  <Text skipTranslation>{userProfile.username}</Text>
+                  <Text skipTranslation>{userProfile.officialCode}</Text>
                 </View>
                 <List style={styles.extraContainer}>
                   {userProfile.extra.map((item, index) => (
@@ -96,7 +96,7 @@ export default class Home extends React.Component<PropsType> {
               </Button>
             </Left>
             <Body>
-              <Text>Déconnexion</Text>
+              <Text>logout</Text>
             </Body>
             <Right />
           </ListItem>

@@ -1,5 +1,6 @@
 
 import { StyleSheet } from 'react-native';
+import chamilo from '../../../native-base-theme/variables/chamilo';
 
 export default StyleSheet.create({
   contentContainerStyle: {
@@ -15,5 +16,8 @@ export default StyleSheet.create({
   htmlView: {
     marginVertical: 30,
     minHeight: 70,
+  },
+  user: {
+    fontSize: chamilo.fontSizeH1,
   },
 });
