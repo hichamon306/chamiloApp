@@ -37,7 +37,7 @@ export default class Courses extends React.Component<PropsType> {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: props.navigation.getParam('currentTab', 'courses'),
+      currentTab: 'courses',
     };
   }
 
@@ -105,6 +105,9 @@ export default class Courses extends React.Component<PropsType> {
   onWillFocus() {
     this.props.getUserCourses();
     this.props.getUserSessions();
+    this.setState({
+      currentTab: this.props.navigation.getParam('currentTab', 'courses'),
+    });
   }
 
   render() {

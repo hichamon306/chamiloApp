@@ -28,14 +28,14 @@ const AppStack = createStackNavigator(
               <Icon name="menu" />
             </Button>
           ),
-        right: (
+        right: routeName === 'TabBar' ? (
           <Button
             onPress={() => navigation.navigate('Settings')}
             transparent
           >
             <Icon name="settings" />
           </Button>
-        ),
+        ) : null,
       };
       return {
         header: <Header {...headerProps} />,

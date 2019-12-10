@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -51,6 +52,7 @@
 		6D762ACDFD5D4683B7C6DAD3 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66B25C0DAB17418FBA59F7C5 /* Zocial.ttf */; };
 		75A888E8759342418C825EC1 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FF419B52884D18BDFE8360 /* libRNI18n.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		84096973239F0BCA00C77F2F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8409696D239F0B6F00C77F2F /* libRNCWebView.a */; };
 		84AACBF0224309B6001BD1C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AACBC3224309B6001BD1C9 /* GoogleService-Info.plist */; };
 		91AA5CAFBF444CD9AFFAD308 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231A0D16287C4BFABCEAF074 /* Entypo.ttf */; };
 		9EA878454224400CB01E7D01 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 631F066C9EA64BA1BA39AD2A /* FontAwesome.ttf */; };
@@ -311,6 +313,20 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		8409696C239F0B6F00C77F2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84096940239F0B6E00C77F2F /* RNCWebView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNCWebView;
+		};
+		8432F28C239EF14400FDCBED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0797A0377F6644E1A12F2BCF /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
+			remoteInfo = "RNGestureHandler-tvOS";
+		};
 		84AACBA722430604001BD1C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0273EC1576584840999860E2 /* AppCenterReactNativeAnalytics.xcodeproj */;
@@ -444,6 +460,7 @@
 		71CF2B007803442090F6575C /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		84096940239F0B6E00C77F2F /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCWebView.xcodeproj; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; };
 		84AACBC3224309B6001BD1C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "chamiloApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84BAF2C399C74EF8A01EDBD8 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
 		874AC0CBB75C4196AFD96907 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
@@ -507,6 +524,7 @@
 				54FDD4884F70413CB89DC779 /* libRNFirebase.a in Frameworks */,
 				426B5BF1A9B1470694C2468C /* libAppCenterReactNativeCrashes.a in Frameworks */,
 				2FD759D69A0D4F0E89EA0C83 /* libAppCenterReactNativeAnalytics.a in Frameworks */,
+				84096973239F0BCA00C77F2F /* libRNCWebView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +750,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				84096940239F0B6E00C77F2F /* RNCWebView.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -788,6 +807,14 @@
 				00E356EE1AD99517003FC87E /* chamiloAppTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* chamiloApp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* chamiloApp-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84096941239F0B6E00C77F2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8409696D239F0B6F00C77F2F /* libRNCWebView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -851,6 +878,7 @@
 			isa = PBXGroup;
 			children = (
 				84E2EF5122284B1C002D8C35 /* libRNGestureHandler.a */,
+				8432F28D239EF14400FDCBED /* libRNGestureHandler-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -972,6 +1000,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1038,6 +1067,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 84096941239F0B6E00C77F2F /* Products */;
+					ProjectRef = 84096940239F0B6E00C77F2F /* RNCWebView.xcodeproj */;
 				},
 				{
 					ProductGroup = 84AACBA222430604001BD1C9 /* Products */;
@@ -1285,6 +1318,20 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8409696D239F0B6F00C77F2F /* libRNCWebView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCWebView.a;
+			remoteRef = 8409696C239F0B6F00C77F2F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8432F28D239EF14400FDCBED /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = 8432F28C239EF14400FDCBED /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		84AACBA822430604001BD1C9 /* libAppCenterReactNativeAnalytics.a */ = {
@@ -1683,10 +1730,12 @@
 			baseConfigurationReference = BCFEEDE30A12D8CA00338BFF /* Pods-chamiloApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-webview/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
@@ -1712,9 +1761,11 @@
 			baseConfigurationReference = 92F4E8B934169C8D0C284FBA /* Pods-chamiloApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-webview/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",

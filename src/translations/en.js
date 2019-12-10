@@ -40,4 +40,5 @@ export default {
   version: 'Version',
   build: 'Build',
   send: 'Send',
+  cgu: 'Terms of Service',
 };

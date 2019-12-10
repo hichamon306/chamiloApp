@@ -1,5 +1,5 @@
 // @flow
-import I18n from 'react-native-i18n';
+// import I18n from 'react-native-i18n';
 
 // action types
 export const actionTypes = {
@@ -17,7 +17,7 @@ export const switchLanguageActionCreator = (currentLanguage: string) =>
     currentLanguage,
   });
 
-const currentLocale = I18n.currentLocale();
+const currentLocale = 'fr'; // I18n.currentLocale();
 
 const initialState: TranslationStateType = {
   currentLanguage: (currentLocale.indexOf('en') && currentLocale.indexOf('fr')) === -1 ? 'fr' : currentLocale,

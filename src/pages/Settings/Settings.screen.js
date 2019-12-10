@@ -7,10 +7,12 @@ import {
   Left,
   Right,
 } from 'native-base';
+import { Linking, Alert } from 'react-native';
 import Page from '../../components/Page';
 import { Text } from '../../components';
 import styles from './styles';
 import translate from '../../services/translate';
+import { CGU_URL, LEGAL_NOTICE_URL, PRIVACY_POLICY_URL, CONTACT_EMAIL } from '../../config/constants';
 
 
 type PropsType = {
@@ -28,6 +30,14 @@ export default class Settings extends React.Component<PropsType> {
         return 'Français';
       default:
         return '';
+    }
+  }
+
+  openLink(url) {
+    try {
+      Linking.openURL(url);
+    } catch (error) {
+      Alert.alert(error.message);
     }
   }
 
@@ -61,7 +71,17 @@ export default class Settings extends React.Component<PropsType> {
           <ListItem itemDivider>
             <Text>about</Text>
           </ListItem>
-          <ListItem>
+          <ListItem onPress={() => this.openLink(CGU_URL)}>
+            <Left>
+              <Text>
+                cgu
+              </Text>
+            </Left>
+            <Right>
+              <Icon name="arrow-forward" />
+            </Right>
+          </ListItem>
+          <ListItem onPress={() => this.openLink(PRIVACY_POLICY_URL)}>
             <Left>
               <Text>
                 privacyPolicy
@@ -71,7 +91,7 @@ export default class Settings extends React.Component<PropsType> {
               <Icon name="arrow-forward" />
             </Right>
           </ListItem>
-          <ListItem>
+          <ListItem onPress={() => this.openLink(LEGAL_NOTICE_URL)}>
             <Left>
               <Text>
                 legalNotice
@@ -81,7 +101,7 @@ export default class Settings extends React.Component<PropsType> {
               <Icon name="arrow-forward" />
             </Right>
           </ListItem>
-          <ListItem>
+          <ListItem onPress={() => this.openLink(`mailto:${CONTACT_EMAIL}`)}>
             <Left>
               <Text>
                 contactUs

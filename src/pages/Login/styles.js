@@ -27,7 +27,9 @@ export default StyleSheet.create({
     alignSelf: 'center',
   },
   logo: {
-    width: '100%',
+    width: 300,
+    height: 300,
+    marginRight: 10,
   },
   contentContainerStyle: {
     flexGrow: 1,

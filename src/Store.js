@@ -8,8 +8,8 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './App';
-import rootReducer from './src/modules/reducer';
-import sagas from './src/modules/sagas';
+import rootReducer from './modules/reducer';
+import sagas from './modules/sagas';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

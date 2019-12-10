@@ -27,7 +27,7 @@ type PropsType = {
   deleteMessage: () => void,
 };
 
-export default class CustomWebView extends React.Component<PropsType> {
+export default class MessageView extends React.Component<PropsType> {
   onPressReply(message) {
     this.props.navigation.navigate('NewMessage', {
       receiver: {

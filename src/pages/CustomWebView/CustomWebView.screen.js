@@ -28,8 +28,8 @@ export default class CustomWebView extends React.Component<PropsType> {
       var alerts = document.getElementsByClassName('alert');
       if(alerts.length > 0) alerts[0].style.display = "none";
       document.getElementById('formLogin').style.display = "none";
-      document.getElementById('formLogin_login').value='${authenticationData.username}';
-      document.getElementById('formLogin_password').value='${authenticationData.password}';
+      document.getElementById('formLogin_login').value='${authenticationData.username || ''}';
+      document.getElementById('formLogin_password').value='${authenticationData.password || ''}';
       document.getElementById('formLogin_submitAuth').click();
     `;
     return (

@@ -35,7 +35,7 @@ export const logoutActionCreator = () =>
   });
 
 const initialState: AuthenticationStateType = {
-  authenticationData: null,
+  authenticationData: {},
   apiLoading: false,
 };
 

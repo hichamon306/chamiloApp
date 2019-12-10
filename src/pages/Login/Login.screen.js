@@ -7,7 +7,7 @@ import {
 } from 'native-base';
 import { Image, View } from 'react-native';
 import styles from './styles';
-import background from '../../../assets/images/logo.png';
+import background from '../../../assets/logo-ceusi.png';
 import Page from '../../components/Page';
 import { Text } from '../../components';
 import translate from '../../services/translate';

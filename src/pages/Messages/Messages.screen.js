@@ -41,7 +41,7 @@ export default class Courses extends React.Component<PropsType> {
     currentTab: 'received',
   };
 
-  onWillFocus() {
+  onDidFocus() {
     this.props.getUserMessagesReceived();
     this.props.getUserMessagesSent();
   }
@@ -131,7 +131,7 @@ export default class Courses extends React.Component<PropsType> {
       <Page
         padder={false}
         headerProps
-        onWillFocus={() => this.onWillFocus()}
+        onDidFocus={() => this.onDidFocus()}
         postContent={postContent}
         postHeader={segment}
       >

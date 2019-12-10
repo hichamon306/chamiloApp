@@ -40,4 +40,5 @@ export default {
   version: 'Version',
   build: 'Code de la version',
   send: 'Envoyer',
+  cgu: 'Conditions générales d\'utilisation',
 };

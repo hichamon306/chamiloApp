@@ -11,7 +11,7 @@ import {
 } from 'native-base';
 import { Alert } from 'react-native';
 import { logoutActionCreator } from '../modules/authentication';
-import headerLogo from '../../assets/images/headerLogo.png';
+import headerLogo from '../../assets/logo-ceusi-transparent.png';
 import getTheme from '../../native-base-theme/components';
 import chamilo from '../../native-base-theme/variables/chamilo';
 
@@ -50,16 +50,16 @@ class CustomHeader extends React.Component<PropsType> {
     return (
       <StyleProvider style={getTheme(chamilo)}>
         <Header {...this.props}>
-          <Left>
+          <Left style={{ flex: 1 }}>
             {this.props.left}
           </Left>
-          <Body>
+          <Body style={{ flex: 1 }}>
             {this.props.body
               || (
-                <Thumbnail style={{ width: 224 }} resizeMode="contain" source={headerLogo} />
+                <Thumbnail style={{ alignSelf: 'center' }} large resizeMode="contain" source={headerLogo} />
               )}
           </Body>
-          <Right>
+          <Right style={{ flex: 1 }}>
             {this.props.right}
           </Right>
         </Header>
