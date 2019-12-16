@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
+import { FlatList } from 'react-native';
 import {
   Button,
   Segment,
-  List,
   ListItem,
   Left,
   Thumbnail,
@@ -24,6 +24,7 @@ moment.locale('fr_FR');
 
 type PropsType = {
   navigation: any,
+  isFocused: Boolean,
   getUserMessagesReceived: ()=> void,
   getUserMessagesSent: ()=> void,
   messagesReceived: any,
@@ -34,12 +35,28 @@ type StateType = {
   currentTab: string,
 };
 
-export default class Courses extends React.Component<PropsType> {
+export default class Messages extends React.Component<PropsType> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTab: 'received',
+    };
+    this.renderMessage = this.renderMessage.bind(this);
+  }
+
   state: StateType;
 
-  state = {
-    currentTab: 'received',
-  };
+  componentDidMount() {
+    setTimeout(() => this.onDidFocus(), 1000);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isFocused !== this.props.isFocused && this.props.isFocused) {
+      // Use the `this.props.isFocused` boolean
+      // Call any action
+      setTimeout(() => this.onDidFocus(), 1000);
+    }
+  }
 
   onDidFocus() {
     this.props.getUserMessagesReceived();
@@ -56,6 +73,34 @@ export default class Courses extends React.Component<PropsType> {
     this.props.navigation.navigate('MessageView', { message, currentTab: this.state.currentTab });
   }
 
+  renderMessage(row) {
+    const message = row.item;
+    const { currentTab } = this.state;
+    // return <Text>{message.title}</Text>;
+    return (
+      <ListItem key={`message${message.id}`} avatar onPress={() => this.openMessage(message)}>
+        <Left>
+          <Thumbnail
+            small
+            square
+            source={{ uri: currentTab === 'received' ? message.sender.pictureUri : message.receiver.pictureUri }}
+          />
+        </Left>
+        <Body>
+          <Text skipTranslation style={message.msgStatus === MESSAGE_STATUS_UNREAD ? styles.unreadMessage : null}>
+            {currentTab === 'received' ? message.sender.completeName : message.receiver.completeName}
+          </Text>
+          <Text skipTranslation note>
+            {`${message.title} - ${message.content.replace(/(<([^>]+)>)/ig, '').trim().substr(0, 30)}...`}
+          </Text>
+        </Body>
+        <Right>
+          <Text skipTranslation note>{moment(message.sendDate).fromNow()}</Text>
+        </Right>
+      </ListItem>
+    );
+  }
+
   renderMessages() {
     const { currentTab } = this.state;
     const { messagesReceived, messagesSent } = this.props;
@@ -68,30 +113,13 @@ export default class Courses extends React.Component<PropsType> {
                 noNewMessage
               </Text>
             )}
-        <List>
-          {messages.map((message, index) => (
-            <ListItem key={`message${index}`} avatar onPress={() => this.openMessage(message)}>
-              <Left>
-                <Thumbnail
-                  small
-                  square
-                  source={{ uri: currentTab === 'received' ? message.sender.pictureUri : message.receiver.pictureUri }}
-                />
-              </Left>
-              <Body>
-                <Text skipTranslation style={message.msgStatus === MESSAGE_STATUS_UNREAD ? styles.unreadMessage : null}>
-                  {currentTab === 'received' ? message.sender.completeName : message.receiver.completeName}
-                </Text>
-                <Text skipTranslation note>
-                  {`${message.title} - ${message.content.replace(/(<([^>]+)>)/ig, '').trim().substr(0, 30)}...`}
-                </Text>
-              </Body>
-              <Right>
-                <Text skipTranslation note>{moment(message.sendDate).fromNow()}</Text>
-              </Right>
-            </ListItem>
-          ))}
-        </List>
+        <FlatList
+          data={messages}
+          renderItem={this.renderMessage}
+          keyExtractor={message => message.id}
+        >
+          {/*messages.map((message, index) => this.renderMessage(message, index))*/}
+        </FlatList>
       </View>
     );
   }
@@ -131,7 +159,6 @@ export default class Courses extends React.Component<PropsType> {
       <Page
         padder={false}
         headerProps
-        onDidFocus={() => this.onDidFocus()}
         postContent={postContent}
         postHeader={segment}
       >

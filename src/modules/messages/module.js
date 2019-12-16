@@ -1,5 +1,6 @@
 // @flow
 import { globalActionTypes } from '../globalActionTypes';
+import { MESSAGE_STATUS_NEW } from '../../config/constants';
 
 export const actionTypes = {
   GET_USER_MESSAGES_RECEIVED_ACTION: {
@@ -57,11 +58,12 @@ export const deleteUserMessageActionCreator = (messageId: string, msgType: strin
     callback,
   });
 
-export const updateMessageStatusActionCreator = (messageId: string, msgStatus: string) =>
+export const updateMessageStatusActionCreator = (messageId: string, msgStatus: string, messageType: string) =>
   ({
     type: actionTypes.UPDATE_MESSAGE_STATUS_ACTION.REQUEST,
     messageId,
     msgStatus,
+    messageType,
   });
 
 export const getUsersActionCreator = (search: string) => ({
@@ -80,6 +82,49 @@ export const setUserListActionCreator = (userList: any) => ({
   userList,
 });
 
+
+const setMessageRead = (state, action) => {
+  const { messagesReceived } = state;
+  messagesReceived.forEach((element, index) => {
+    if (element.id === action.messageId) {
+      messagesReceived[index].msgStatus = MESSAGE_STATUS_NEW;
+    }
+  });
+  return {
+    ...state,
+    messagesReceived,
+  };
+};
+
+
+const deleteMessage = (state, action) => {
+  const { messagesReceived, messagesSent } = state;
+  let msgList = [];
+  const newState = {
+    ...state,
+  };
+  let removeIndex = -1;
+  if (action.messageType === 'received') {
+    msgList = messagesReceived;
+  } else {
+    msgList = messagesSent;
+  }
+  msgList.forEach((element, index) => {
+    if (element.id === action.messageId) {
+      removeIndex = index;
+    }
+  });
+  if (removeIndex >= 0) {
+    msgList.splice(removeIndex, 1);
+  }
+  if (action.messageType === 'received') {
+    newState.messagesReceived = msgList;
+  } else {
+    newState.messagesSent = msgList;
+  }
+  return newState;
+};
+
 const initialState: MessagesStateType = {
   messagesReceived: [],
   messagesSent: [],
@@ -88,6 +133,11 @@ const initialState: MessagesStateType = {
 };
 
 export function messagesReducer(state: MessagesStateType = initialState, action: any) {
+  // eslint-disable-next-line no-case-declarations
+  const msgReceivedList = state.messagesReceived;
+  // eslint-disable-next-line no-case-declarations
+  const msgSentList = state.messagesSent;
+
   switch (action.type) {
     case actionTypes.GET_USERS_ACTION.API_LOADING_START:
     case actionTypes.GET_USER_MESSAGES_SENT_ACTION.API_LOADING_START:
@@ -100,13 +150,18 @@ export function messagesReducer(state: MessagesStateType = initialState, action:
     case actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION.SUCCESS:
       return {
         ...state,
-        messagesReceived: action.messages,
+        messagesReceived: [...action.messages, ...msgReceivedList],
       };
     case actionTypes.GET_USER_MESSAGES_SENT_ACTION.SUCCESS:
       return {
         ...state,
-        messagesSent: action.messages,
+        messagesSent: [...action.messages, ...msgSentList],
       };
+    case actionTypes.UPDATE_MESSAGE_STATUS_ACTION.SUCCESS:
+      return setMessageRead(state, action);
+      // return newState;
+    case actionTypes.DELETE_USER_MESSAGE_ACTION.SUCCESS:
+      return deleteMessage(state, action);
     case actionTypes.GET_USERS_ACTION.SUCCESS:
       return {
         ...state,

@@ -34,10 +34,13 @@ export default class Catalogue extends React.Component<PropsType> {
       document.getElementsByTagName('footer')[0].style.display = "none";
       var alerts = document.getElementsByClassName('alert-danger');
       if(alerts.length > 0) alerts[0].style.display = "none";
-      document.getElementById('formLogin').style.display = "none";
-      document.getElementById('formLogin_login').value='${authenticationData.username}';
-      document.getElementById('formLogin_password').value='${authenticationData.password}';
-      document.getElementById('formLogin_submitAuth').click();
+      if(document.getElementById('formLogin')){
+        document.getElementById('formLogin').style.display = "none";
+        document.getElementById('formLogin_login').value='${authenticationData.username}';
+        document.getElementById('formLogin_password').value='${authenticationData.password}';
+        document.getElementById('formLogin_submitAuth').click();
+      }
+      
     `;
     return (
       <Page

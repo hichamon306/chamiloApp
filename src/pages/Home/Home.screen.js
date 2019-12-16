@@ -16,6 +16,7 @@ type PropsType = {
   sessionCount: number,
   courseCount: number,
   unreadMessagesCount: number,
+  isFocused: Boolean,
   getUserCourses: () => void,
   getUserSessions: () => void,
   getUserMessagesReceived: () => void,
@@ -24,6 +25,18 @@ type PropsType = {
 export default class Home extends React.Component<PropsType> {
   navigateTo(routeName: string, params: any) {
     this.props.navigation.navigate(routeName, params);
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.loadData(), 1000);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isFocused !== this.props.isFocused && this.props.isFocused) {
+      // Use the `this.props.isFocused` boolean
+      // Call any action
+      this.loadData();
+    }
   }
 
   loadData() {
@@ -36,7 +49,6 @@ export default class Home extends React.Component<PropsType> {
     const { unreadMessagesCount, courseCount, sessionCount } = this.props;
     return (
       <Page
-        onWillFocus={() => this.loadData()}
         contentContainerStyle={styles.contentContainerStyle}
         style={styles.page}
       >

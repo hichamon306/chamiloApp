@@ -5,12 +5,13 @@ import {
   Button,
   Icon,
 } from 'native-base';
-import { Image, View } from 'react-native';
+import { Image, View, Linking } from 'react-native';
 import styles from './styles';
 import background from '../../../assets/logo-ceusi.png';
 import Page from '../../components/Page';
 import { Text } from '../../components';
 import translate from '../../services/translate';
+import { SIGNIN_URL } from '../../config/constants';
 
 type PropsType = {
   navigation: any,
@@ -63,6 +64,7 @@ export default class Login extends React.Component<PropsType> {
               <Button
                 transparent
                 style={styles.btn}
+                onPress={() => Linking.openURL(SIGNIN_URL)}
               >
                 <Text>signin</Text>
               </Button>

@@ -66,7 +66,7 @@ export default class Home extends React.Component<PropsType> {
       <Page
         footerProps={footerProps}
         headerProps
-        onWillFocus={() => this.props.getUserProfil()}
+        onDidFocus={() => this.props.getUserProfil()}
       >
         <SafeAreaView>
           <Button style={styles.closeButton} transparent onPress={() => this.props.navigation.toggleDrawer()}>

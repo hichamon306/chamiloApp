@@ -102,7 +102,7 @@ export default class Courses extends React.Component<PropsType> {
     );
   }
 
-  onWillFocus() {
+  onDidFocus() {
     this.props.getUserCourses();
     this.props.getUserSessions();
     this.setState({
@@ -133,7 +133,7 @@ export default class Courses extends React.Component<PropsType> {
     );
     return (
       <Page
-        onWillFocus={() => this.onWillFocus()}
+        onDidFocus={() => this.onDidFocus()}
         postHeader={segment}
       >
         {currentTab === 'sessions'

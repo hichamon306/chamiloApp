@@ -1,5 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
+import { withNavigationFocus } from 'react-navigation';
 import Messages from './Messages.screen';
 import {
   getMessagesReceivedList,
@@ -18,4 +19,4 @@ const mapDispatchToProps = ({
   getUserMessagesSent: getUserMessagesSentActionCreator,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Messages);
+export default connect(mapStateToProps, mapDispatchToProps)(withNavigationFocus(Messages));

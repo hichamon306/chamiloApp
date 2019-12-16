@@ -62,6 +62,12 @@ export default class MessageView extends React.Component<PropsType> {
     );
   }
 
+  componentDidMount() {
+    const message = this.props.navigation.getParam('message', {});
+    const currentTab = this.props.navigation.getParam('currentTab', 'sent');
+    this.props.updateMessageStatus(message.id, MESSAGE_STATUS_NEW, currentTab);
+  }
+
   render() {
     const headerProps = {
       left: (
@@ -73,7 +79,7 @@ export default class MessageView extends React.Component<PropsType> {
     const currentTab = this.props.navigation.getParam('currentTab', 'sent');
     return (
       <Page
-        onWillFocus={() => this.props.updateMessageStatus(message.id, MESSAGE_STATUS_NEW)}
+        // onDidFocus={() => this.props.updateMessageStatus(message.id, MESSAGE_STATUS_NEW, currentTab)}
         contentContainerStyle={styles.contentContainerStyle}
         headerProps={headerProps}
       >

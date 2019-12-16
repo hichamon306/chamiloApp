@@ -1,5 +1,6 @@
 // @flow
 import { connect } from 'react-redux';
+import { withNavigationFocus } from 'react-navigation';
 import Home from './Home.screen';
 import {
   getCountUnreadMessages,
@@ -24,4 +25,4 @@ const mapDispatchToProps = ({
   getUserMessagesReceived: getUserMessagesReceivedActionCreator,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(withNavigationFocus(Home));

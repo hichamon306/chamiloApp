@@ -6,12 +6,13 @@ import { catchApiExceptions } from '../api';
 import * as Api from '../../services/Api';
 import { callApi } from '../ApiAuthorization';
 import { getAuthenticationData } from '../authentication';
-import { getUserList } from './selectors';
+import { getUserList, getMessageReceivedLastId, getMessageSentLastId } from './selectors';
 
 
 function* getMessagesReceived() {
   const authenticationData = yield select(getAuthenticationData);
-  const response = yield callApi(Api.getMessagesReceived(authenticationData));
+  const lastId = yield select(getMessageReceivedLastId);
+  const response = yield callApi(Api.getMessagesReceived(authenticationData, lastId));
   yield put({ type: actionTypes.GET_USER_MESSAGES_RECEIVED_ACTION.SUCCESS, messages: response });
 }
 export function* getMessagesReceivedSagas(): SagaType {
@@ -22,7 +23,8 @@ export function* getMessagesReceivedSagas(): SagaType {
 
 function* getMessagesSent() {
   const authenticationData = yield select(getAuthenticationData);
-  const response = yield callApi(Api.getMessagesSent(authenticationData));
+  const lastId = yield select(getMessageSentLastId);
+  const response = yield callApi(Api.getMessagesSent(authenticationData, lastId));
   yield put({ type: actionTypes.GET_USER_MESSAGES_SENT_ACTION.SUCCESS, messages: response });
 }
 export function* getMessagesSentSagas(): SagaType {
@@ -33,12 +35,13 @@ export function* getMessagesSentSagas(): SagaType {
 
 function* updateMessageStatus(action: any) {
   const authenticationData = yield select(getAuthenticationData);
-  const { messageId, msgStatus } = action;
+  const { messageId, msgStatus, messageType } = action;
   if (msgStatus !== '0') {
     yield callApi(Api.updateMessageStatus(authenticationData, messageId, msgStatus));
     return;
   }
   yield callApi(Api.setMessageRead(authenticationData, messageId));
+  yield put({ type: actionTypes.UPDATE_MESSAGE_STATUS_ACTION.SUCCESS, messageId, messageType });
 }
 export function* updateMessageStatusSagas(): SagaType {
   const requestActionType = actionTypes.UPDATE_MESSAGE_STATUS_ACTION.REQUEST;
@@ -50,6 +53,11 @@ function* deleteUserMessage(action: any) {
   const authenticationData = yield select(getAuthenticationData);
   const { messageId, msgType } = action;
   yield callApi(Api.deleteUserMessage(authenticationData, messageId, msgType));
+  yield put({
+    type: actionTypes.DELETE_USER_MESSAGE_ACTION.SUCCESS,
+    messageId,
+    messageType: msgType,
+  });
   if (action.callback) {
     action.callback();
   }

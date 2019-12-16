@@ -24,22 +24,48 @@ class AuthLoading extends React.Component<PropsType> {
     super(props);
     if (props.authenticationData) {
       if (!props.authenticationData.fcmToken || true) {
-        firebase.messaging().getToken()
-          .then((fcmToken) => {
-            if (fcmToken) {
-            // user has a device token
-              props.registerDeviceToken(fcmToken);
-            } else {
-            // user doesn't have a device token yet
-              console.log('unable to find token');
-            }
-          });
-        this.createNotificationListeners();
+        this.checkUserPermission();
       }
       props.navigation.navigate('Home');
     } else {
       props.navigation.navigate('Login');
     }
+  }
+
+  async checkUserPermission() {
+    // check user permission
+    const enabled = await firebase.messaging().hasPermission();
+    // alert('enable : '+ enabled);
+    if (enabled) {
+      // user has permissions
+      this.handleTokenFCM();
+      this.createNotificationListeners();
+    } else {
+      // user doesn't have permission
+      try {
+        await firebase.messaging().requestPermission();
+        this.handleTokenFCM();
+        this.createNotificationListeners();
+        // User has authorised
+      } catch (error) {
+        // User has rejected permissions
+        console.log(error);
+      }
+    }
+  }
+
+  handleTokenFCM() {
+    firebase.messaging().getToken()
+      .then((fcmToken) => {
+        if (fcmToken) {
+          // user has a device token
+          this.props.registerDeviceToken(fcmToken);
+        } else {
+          // user doesn't have a device token yet
+          console.log('unable to find token');
+        }
+      });
+    this.createNotificationListeners();
   }
 
   navigateToMessages() {

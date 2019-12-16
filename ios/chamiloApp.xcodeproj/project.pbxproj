@@ -44,7 +44,6 @@
 		333E78C43FB647ECB43DF45D /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BAF2C399C74EF8A01EDBD8 /* libRNGestureHandler.a */; };
 		3EF8DBA623C44E999182BA2F /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E54B54EB7F4324B5843DAE /* FontAwesome5_Solid.ttf */; };
 		426B5BF1A9B1470694C2468C /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F0DA12333143BFA7F03EF6 /* libAppCenterReactNativeCrashes.a */; };
-		4BBB3A49CEC6EF29164E23D4 /* libPods-chamiloApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C9038647FB09632557E2A2 /* libPods-chamiloApp-tvOSTests.a */; };
 		4FBB2E36F0A549B788D2FC17 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E03B75F6FA3B48FC9FB89EBA /* Octicons.ttf */; };
 		54FDD4884F70413CB89DC779 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD82C2283EB9465D95105F4A /* libRNFirebase.a */; };
 		62FB4B99579B4DF89A9C3DA9 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B02494EAC3B41BE872927A7 /* MaterialCommunityIcons.ttf */; };
@@ -54,6 +53,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		84096973239F0BCA00C77F2F /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8409696D239F0B6F00C77F2F /* libRNCWebView.a */; };
 		84AACBF0224309B6001BD1C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AACBC3224309B6001BD1C9 /* GoogleService-Info.plist */; };
+		84D14A4823A6EFA60064507A /* libRNScreens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D14A4523A6EFA00064507A /* libRNScreens.a */; };
 		91AA5CAFBF444CD9AFFAD308 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 231A0D16287C4BFABCEAF074 /* Entypo.ttf */; };
 		9EA878454224400CB01E7D01 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 631F066C9EA64BA1BA39AD2A /* FontAwesome.ttf */; };
 		A4D9C5931E98498292B3EA8C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEE80A4189C4B499543D9C6 /* SimpleLineIcons.ttf */; };
@@ -63,14 +63,12 @@
 		B51101DC73DB46B89ECA391F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A183CD750909457F934AD564 /* Roboto_medium.ttf */; };
 		B5E5B05378684B999EC4F1A5 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71CF2B007803442090F6575C /* Foundation.ttf */; };
 		B9A48E0ED5664D15B5601281 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A6EEBEEAACD481B9EB5FFC3 /* Ionicons.ttf */; };
-		C128371C67B63608D54FAFAB /* libPods-chamiloAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD348E462C7F5DFCF082E60 /* libPods-chamiloAppTests.a */; };
 		C61F9C5DB9CD4752859B0CD7 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AD865DA18CE48E98C141642 /* FontAwesome5_Brands.ttf */; };
 		D78E632EF8D34A17A21A547C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A5B27124E54BC9A4174ACE /* MaterialIcons.ttf */; };
 		DAA896B433D3403CB70E14E4 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEB2E21C29594B759E21C51E /* rubicon-icon-font.ttf */; };
 		E06EE391E21940F994751F23 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D33C8EDC055434683F322E7 /* Roboto.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		EE9FECEABA3C18D6D6302D42 /* libPods-chamiloApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9694D1F8167A71DC78992A /* libPods-chamiloApp-tvOS.a */; };
 		F6EDBF1CB39147538284265D /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BF96AE8C8B4919A5C1B0AA /* libAppCenterReactNative.a */; };
 /* End PBXBuildFile section */
 
@@ -348,6 +346,20 @@
 			remoteGlobalIDString = 5419C2701D824AA700DDF3A1;
 			remoteInfo = AppCenterReactNativeCrashes;
 		};
+		84D14A4423A6EFA00064507A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84D14A1123A6EFA00064507A /* RNScreens.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNScreens;
+		};
+		84D14A4623A6EFA00064507A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84D14A1123A6EFA00064507A /* RNScreens.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A4F220C6379000FFB8D;
+			remoteInfo = "RNScreens-tvOS";
+		};
 		84E2EF3822284B1C002D8C35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -427,7 +439,6 @@
 		0797A0377F6644E1A12F2BCF /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		0C49B83EDC27451D99192C5A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		11E54B54EB7F4324B5843DAE /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		132FE9D8BD48F28E2F33256C /* Pods-chamiloAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloAppTests/Pods-chamiloAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* chamiloApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chamiloApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,42 +456,35 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		356A6DF5FA3542A39691EC15 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		37A5B27124E54BC9A4174ACE /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		40C9038647FB09632557E2A2 /* libPods-chamiloApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chamiloApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4554C0353C364B0380D8433F /* libAppCenterReactNativeAnalytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativeAnalytics.a; sourceTree = "<group>"; };
 		4B02494EAC3B41BE872927A7 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		4BE39AE1088A49A983B58024 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		4D33C8EDC055434683F322E7 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
-		4DD348E462C7F5DFCF082E60 /* libPods-chamiloAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chamiloAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54BA511B8E2824BB4057DBE7 /* Pods-chamiloAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloAppTests/Pods-chamiloAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		59743ED4C42D457286B76CFD /* AppCenterReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNative.xcodeproj; path = ../node_modules/appcenter/ios/AppCenterReactNative.xcodeproj; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		631F066C9EA64BA1BA39AD2A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		66B25C0DAB17418FBA59F7C5 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		688ABF4B0CCA94991F263667 /* Pods-chamiloApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloApp-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloApp-tvOSTests/Pods-chamiloApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71CF2B007803442090F6575C /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		84096940239F0B6E00C77F2F /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCWebView.xcodeproj; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; };
 		84AACBC3224309B6001BD1C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "chamiloApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84BAF2C399C74EF8A01EDBD8 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
+		84D14A1123A6EFA00064507A /* RNScreens.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNScreens.xcodeproj; path = "../node_modules/react-native-screens/ios/RNScreens.xcodeproj"; sourceTree = "<group>"; };
 		874AC0CBB75C4196AFD96907 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		8AD865DA18CE48E98C141642 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		8BF1D8B11AE8484B3A7BE208 /* Pods-chamiloApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloApp-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloApp-tvOS/Pods-chamiloApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		8EF4AA6E2DAABB2F16AA0740 /* libPods-chamiloApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chamiloApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F0DA12333143BFA7F03EF6 /* libAppCenterReactNativeCrashes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativeCrashes.a; sourceTree = "<group>"; };
 		92F4E8B934169C8D0C284FBA /* Pods-chamiloApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloApp/Pods-chamiloApp.release.xcconfig"; sourceTree = "<group>"; };
 		97FF419B52884D18BDFE8360 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		9A6EEBEEAACD481B9EB5FFC3 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		9B9694D1F8167A71DC78992A /* libPods-chamiloApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chamiloApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA12E1271434689A64DDB73 /* libRNI18n-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNI18n-tvOS.a"; sourceTree = "<group>"; };
 		A183CD750909457F934AD564 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BCFEEDE30A12D8CA00338BFF /* Pods-chamiloApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloApp/Pods-chamiloApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BD82C2283EB9465D95105F4A /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		CC0E280A812042A6BE9E118F /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
-		CC9A2427896E89D126538731 /* Pods-chamiloApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloApp-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloApp-tvOS/Pods-chamiloApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D3E44884EBB24042B653789C /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		DACB4A795AE57E1532F198CE /* Pods-chamiloApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chamiloApp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-chamiloApp-tvOSTests/Pods-chamiloApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		DDA2633244574E24A4EEC634 /* AppCenterReactNativeCrashes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativeCrashes.xcodeproj; path = "../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes.xcodeproj"; sourceTree = "<group>"; };
 		DEEE80A4189C4B499543D9C6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		E03B75F6FA3B48FC9FB89EBA /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -496,7 +500,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				C128371C67B63608D54FAFAB /* libPods-chamiloAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +511,7 @@
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				84D14A4823A6EFA60064507A /* libRNScreens.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -542,7 +546,6 @@
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 				10A5AC35A12B4D3C884DF2DE /* libRNI18n-tvOS.a in Frameworks */,
-				EE9FECEABA3C18D6D6302D42 /* libPods-chamiloApp-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				4BBB3A49CEC6EF29164E23D4 /* libPods-chamiloApp-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,12 +682,6 @@
 			children = (
 				BCFEEDE30A12D8CA00338BFF /* Pods-chamiloApp.debug.xcconfig */,
 				92F4E8B934169C8D0C284FBA /* Pods-chamiloApp.release.xcconfig */,
-				CC9A2427896E89D126538731 /* Pods-chamiloApp-tvOS.debug.xcconfig */,
-				8BF1D8B11AE8484B3A7BE208 /* Pods-chamiloApp-tvOS.release.xcconfig */,
-				688ABF4B0CCA94991F263667 /* Pods-chamiloApp-tvOSTests.debug.xcconfig */,
-				DACB4A795AE57E1532F198CE /* Pods-chamiloApp-tvOSTests.release.xcconfig */,
-				54BA511B8E2824BB4057DBE7 /* Pods-chamiloAppTests.debug.xcconfig */,
-				132FE9D8BD48F28E2F33256C /* Pods-chamiloAppTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -697,9 +693,6 @@
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				8EF4AA6E2DAABB2F16AA0740 /* libPods-chamiloApp.a */,
-				9B9694D1F8167A71DC78992A /* libPods-chamiloApp-tvOS.a */,
-				40C9038647FB09632557E2A2 /* libPods-chamiloApp-tvOSTests.a */,
-				4DD348E462C7F5DFCF082E60 /* libPods-chamiloAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -750,6 +743,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				84D14A1123A6EFA00064507A /* RNScreens.xcodeproj */,
 				84096940239F0B6E00C77F2F /* RNCWebView.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -843,6 +837,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		84D14A1223A6EFA00064507A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84D14A4523A6EFA00064507A /* libRNScreens.a */,
+				84D14A4723A6EFA00064507A /* libRNScreens-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		84E2EF1222284B1C002D8C35 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,7 +902,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "chamiloAppTests" */;
 			buildPhases = (
-				7CD0036136185E2847671B56 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -937,7 +939,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "chamiloApp-tvOS" */;
 			buildPhases = (
-				A8EEF924A82D8700ACA4B083 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
@@ -956,7 +957,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "chamiloApp-tvOSTests" */;
 			buildPhases = (
-				E7AF123D7504680AA3A86196 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -1083,6 +1083,10 @@
 				{
 					ProductGroup = 84E2EF4522284B1C002D8C35 /* Products */;
 					ProjectRef = CC0E280A812042A6BE9E118F /* RNI18n.xcodeproj */;
+				},
+				{
+					ProductGroup = 84D14A1223A6EFA00064507A /* Products */;
+					ProjectRef = 84D14A1123A6EFA00064507A /* RNScreens.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1355,6 +1359,20 @@
 			remoteRef = 84AACBAF22430604001BD1C9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		84D14A4523A6EFA00064507A /* libRNScreens.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNScreens.a;
+			remoteRef = 84D14A4423A6EFA00064507A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84D14A4723A6EFA00064507A /* libRNScreens-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNScreens-tvOS.a";
+			remoteRef = 84D14A4623A6EFA00064507A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		84E2EF3922284B1C002D8C35 /* libjsi.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1525,72 +1543,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CD0036136185E2847671B56 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-chamiloAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8EEF924A82D8700ACA4B083 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-chamiloApp-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E7AF123D7504680AA3A86196 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-chamiloApp-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1658,7 +1610,6 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54BA511B8E2824BB4057DBE7 /* Pods-chamiloAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1677,11 +1628,7 @@
 				INFOPLIST_FILE = chamiloAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1694,7 +1641,6 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 132FE9D8BD48F28E2F33256C /* Pods-chamiloAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1710,11 +1656,7 @@
 				INFOPLIST_FILE = chamiloAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1742,6 +1684,7 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/react-native-screens/ios/**",
 				);
 				INFOPLIST_FILE = chamiloApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1772,6 +1715,7 @@
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
+					"$(SRCROOT)/../node_modules/react-native-screens/ios/**",
 				);
 				INFOPLIST_FILE = chamiloApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1788,7 +1732,6 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC9A2427896E89D126538731 /* Pods-chamiloApp-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1810,11 +1753,7 @@
 				);
 				INFOPLIST_FILE = "chamiloApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1829,7 +1768,6 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BF1D8B11AE8484B3A7BE208 /* Pods-chamiloApp-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1851,11 +1789,7 @@
 				);
 				INFOPLIST_FILE = "chamiloApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1870,7 +1804,6 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 688ABF4B0CCA94991F263667 /* Pods-chamiloApp-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1891,11 +1824,7 @@
 				);
 				INFOPLIST_FILE = "chamiloApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1910,7 +1839,6 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DACB4A795AE57E1532F198CE /* Pods-chamiloApp-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1931,11 +1859,7 @@
 				);
 				INFOPLIST_FILE = "chamiloApp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
