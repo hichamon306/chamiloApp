@@ -91,18 +91,21 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
-
+def enableProguardInReleaseBuilds = true
+def appId = System.getenv("GRADLE_APP_IDENTIFIER") ? System.getenv("GRADLE_APP_IDENTIFIER") : "com.chamiloapp"
+def appName = System.getenv("GRADLE_APP_NAME") ? System.getenv("GRADLE_APP_NAME") : "CEUSI Debug"
+def versCode = System.getenv("ANDROID_VERSION_CODE") ? System.getenv("ANDROID_VERSION_CODE") : 1
+def versName = System.getenv("ANDROID_VERSION_NAME") ? System.getenv("ANDROID_VERSION_NAME") : "1.0"
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.chamiloapp"
+        applicationId appId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode versCode as Integer
+        versionName versName
     }
     splits {
         abi {
@@ -121,12 +124,17 @@ android {
         }
     }
     buildTypes {
+        debug {
+            resValue 'string', 'app_name', appName
+        }
         release {
+            resValue 'string', 'app_name', appName
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
             lintOptions {
                 disable 'MissingTranslation'
+                disable 'MissingDefaultResource'
                 checkReleaseBuilds false
                 abortOnError false
             }

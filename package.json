@@ -9,6 +9,8 @@
     "android": "npx jetify && react-native run-android",
     "deploy:android": "fastlane android deploy --env=staging",
     "deploy:android:prod": "fastlane android deploy --env=prod",
+    "deploy:ios": "fastlane ios deploy --env=staging",
+    "deploy:ios:prod": "fastlane ios deploy --env=prod",
     "lint": "eslint *.js **/*.js"
   },
   "dependencies": {
@@ -21,7 +23,7 @@
     "native-base": "^2.13.8",
     "numeral": "^2.0.6",
     "react": "16.6.3",
-    "react-native": "0.59.9",
+    "react-native": "0.59.10",
     "react-native-firebase": "^5.2.3",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-htmlview": "^0.13.0",
