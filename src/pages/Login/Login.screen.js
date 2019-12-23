@@ -5,7 +5,7 @@ import {
   Button,
   Icon,
 } from 'native-base';
-import { Image, View, Linking } from 'react-native';
+import { Image, View } from 'react-native';
 import styles from './styles';
 import background from '../../../assets/logo-ceusi.png';
 import Page from '../../components/Page';
@@ -64,7 +64,7 @@ export default class Login extends React.Component<PropsType> {
               <Button
                 transparent
                 style={styles.btn}
-                onPress={() => Linking.openURL(SIGNIN_URL)}
+                onPress={() => this.props.navigation.navigate('Webview', { uri: SIGNIN_URL })}
               >
                 <Text>signin</Text>
               </Button>

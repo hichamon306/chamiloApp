@@ -1695,6 +1695,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/react-native-screens/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-user-agent/ios/**",
 				);
 				INFOPLIST_FILE = chamiloApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1703,7 +1704,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ceusi.campus.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ceusi.campus;
 				PRODUCT_NAME = chamiloApp;
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.ceusi.campus.staging";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1732,6 +1733,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics",
 					"$(SRCROOT)/../node_modules/react-native-screens/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-user-agent/ios/**",
 				);
 				INFOPLIST_FILE = chamiloApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1740,7 +1742,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ceusi.campus.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ceusi.campus;
 				PRODUCT_NAME = chamiloApp;
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.ceusi.campus.staging";
 				TARGETED_DEVICE_FAMILY = "1,2";

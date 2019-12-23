@@ -39,12 +39,16 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>L'application souhaite utiliser la camera du téléphone</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>L'application a besoin d'acceder à votre geolocalisation</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>L'application a besoin d'acceder à votre geolocalisation</string>
 	<key>NSMainNibFile</key>
 	<string>LaunchScreen</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>L'application souhaite utiliser le microphone du téléphone</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
