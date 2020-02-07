@@ -27,24 +27,6 @@ export default class Home extends React.Component<PropsType> {
     this.props.navigation.navigate(routeName, params);
   }
 
-  componentDidMount() {
-    setTimeout(() => this.loadData(), 1000);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.isFocused !== this.props.isFocused && this.props.isFocused) {
-      // Use the `this.props.isFocused` boolean
-      // Call any action
-      this.loadData();
-    }
-  }
-
-  loadData() {
-    this.props.getUserCourses();
-    this.props.getUserSessions();
-    this.props.getUserMessagesReceived();
-  }
-
   render() {
     const { unreadMessagesCount, courseCount, sessionCount } = this.props;
     return (

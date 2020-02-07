@@ -4,13 +4,10 @@ import { withNavigationFocus } from 'react-navigation';
 import Home from './Home.screen';
 import {
   getCountUnreadMessages,
-  getUserMessagesReceivedActionCreator,
 } from '../../modules/messages';
 import {
   getSessionCount,
   getCourseCount,
-  getUserCoursesActionCreator,
-  getUserSessionsActionCreator,
 } from '../../modules/courses';
 
 const mapStateToProps = state => ({
@@ -19,10 +16,12 @@ const mapStateToProps = state => ({
   courseCount: getCourseCount(state),
 });
 
+/*
 const mapDispatchToProps = ({
   getUserCourses: getUserCoursesActionCreator,
   getUserSessions: getUserSessionsActionCreator,
   getUserMessagesReceived: getUserMessagesReceivedActionCreator,
 });
+*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNavigationFocus(Home));
+export default connect(mapStateToProps)(withNavigationFocus(Home));

@@ -7,7 +7,8 @@ import * as Api from '../../services/Api';
 import NavigationService from '../../services/navigator';
 import { callApi } from '../ApiAuthorization';
 import { globalActionTypes } from '../globalActionTypes';
-import { getAuthenticationData } from './selectors';
+import { getAuthenticationData, getRememberMe } from './selectors';
+import { actionTypes as dataLoaderActionTypes } from '../dataLoader';
 
 
 function* registerDeviceToken(action: any) {
@@ -18,7 +19,8 @@ function* registerDeviceToken(action: any) {
     ...authenticationData,
     fcmToken,
   };
-  yield put({ type: actionTypes.LOGIN_ACTION.SUCCESS, authenticationData: data });
+  const rememberMe = yield select(getRememberMe);
+  yield put({ type: actionTypes.LOGIN_ACTION.SUCCESS, authenticationData: data, rememberMe });
 }
 export function* registerDeviceTokenSagas(): SagaType {
   const requestActionType = actionTypes.REGISTER_DEVICE_TOKEN.REQUEST;
@@ -30,6 +32,7 @@ function* login(action: any) {
     username: action.username,
     password: action.password,
   };
+  const { rememberMe } = action;
   const response = yield callApi(Api.login(authenticationData));
   if (response.error === true) {
     return Alert.alert('', response.message);
@@ -38,9 +41,9 @@ function* login(action: any) {
     ...response,
     ...authenticationData,
   };
-  yield put({ type: actionTypes.LOGIN_ACTION.SUCCESS, authenticationData: data });
+  yield put({ type: actionTypes.LOGIN_ACTION.SUCCESS, authenticationData: data, rememberMe });
   yield NavigationService.navigate('AuthLoading');
-  // yield put({ type: dataLoaderActionTypes.LOAD_DATA_ACTION.REQUEST });
+  yield put({ type: dataLoaderActionTypes.LOAD_DATA_ACTION.REQUEST });
 }
 export function* loginSagas(): SagaType {
   const requestActionType = actionTypes.LOGIN_ACTION.REQUEST;

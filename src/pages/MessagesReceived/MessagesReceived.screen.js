@@ -13,82 +13,101 @@ import {
   Fab,
   Icon,
 } from 'native-base';
+// import isEqual from 'react-fast-compare';
 import chamilo from '../../../native-base-theme/variables/chamilo';
 import Page from '../../components/Page';
 import { Text } from '../../components';
 import 'moment/locale/fr';
 import styles from './styles';
-import { MESSAGE_STATUS_UNREAD } from '../../config/constants';
+import { MESSAGE_STATUS_UNREAD, MESSAGE_STATUS_NEW } from '../../config/constants';
 
 moment.locale('fr_FR');
 
 type PropsType = {
   navigation: any,
-  isFocused: Boolean,
-  getUserMessagesReceived: ()=> void,
-  getUserMessagesSent: ()=> void,
   messagesReceived: any,
-  messagesSent: any,
+  updateMessageStatus: () => void,
+  setCurrentPage: () => void,
+  currentPage: any,
 };
 
 type StateType = {
   currentTab: string,
+  refresh: any,
+  messagesReceived: any,
 };
 
-export default class Messages extends React.Component<PropsType> {
+export default class MessagesReceived extends React.Component<PropsType> {
   constructor(props) {
     super(props);
     this.state = {
       currentTab: 'received',
+      refresh: false,
+      // messagesReceived: this.props.messagesReceived.data,
     };
     this.renderMessage = this.renderMessage.bind(this);
   }
 
+  static navigationOptions = {
+    header: null,
+  };
+
   state: StateType;
 
-  componentDidMount() {
-    setTimeout(() => this.onDidFocus(), 1000);
+  /*
+
+  static getDerivedStateFromProps(props, state) {
+    if (!isEqual(props.messagesReceived.data, state.messagesReceived)) {
+      return {
+        messagesReceived: [...state.messagesReceived, ...props.messagesReceived.data],
+      };
+    }
+    return null;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.isFocused !== this.props.isFocused && this.props.isFocused) {
-      // Use the `this.props.isFocused` boolean
-      // Call any action
-      setTimeout(() => this.onDidFocus(), 1000);
+  getNextPage() {
+    const nextPage = this.props.currentPage + 1;
+    if (nextPage <= this.props.messagesReceived.total_pages) {
+      this.props.setCurrentPage(this.props.currentPage + 1);
     }
   }
-
-  onDidFocus() {
-    this.props.getUserMessagesReceived();
-    this.props.getUserMessagesSent();
-  }
-
+*/
   switchTab(tabName: string) {
     const { currentTab } = this.state;
     if (currentTab === tabName) return;
-    this.setState({ currentTab: tabName });
+    this.props.navigation.navigate('MessagesSent');
   }
 
   openMessage(message: any) {
+    if (message.msgStatus === MESSAGE_STATUS_UNREAD) {
+      this.props.updateMessageStatus(message.id, MESSAGE_STATUS_NEW, this.state.currentTab, () => {
+        const { refresh } = this.state;
+        this.setState({ refresh: !refresh });
+      });
+    }
     this.props.navigation.navigate('MessageView', { message, currentTab: this.state.currentTab });
   }
+  /*
+  shouldComponentUpdate(nextProps) {
+    const equal = isEqual(this.props.messagesReceived, nextProps.messagesReceived);
+    return !equal;
+  }
+  */
 
   renderMessage(row) {
     const message = row.item;
-    const { currentTab } = this.state;
-    // return <Text>{message.title}</Text>;
     return (
       <ListItem key={`message${message.id}`} avatar onPress={() => this.openMessage(message)}>
         <Left>
           <Thumbnail
             small
             square
-            source={{ uri: currentTab === 'received' ? message.sender.pictureUri : message.receiver.pictureUri }}
+            source={{ uri: message.sender.pictureUri }}
           />
         </Left>
         <Body>
           <Text skipTranslation style={message.msgStatus === MESSAGE_STATUS_UNREAD ? styles.unreadMessage : null}>
-            {currentTab === 'received' ? message.sender.completeName : message.receiver.completeName}
+            {message.sender.completeName}
           </Text>
           <Text skipTranslation note>
             {`${message.title} - ${message.content.replace(/(<([^>]+)>)/ig, '').trim().substr(0, 30)}...`}
@@ -102,30 +121,29 @@ export default class Messages extends React.Component<PropsType> {
   }
 
   renderMessages() {
-    const { currentTab } = this.state;
-    const { messagesReceived, messagesSent } = this.props;
-    const messages = currentTab === 'received' ? messagesReceived : messagesSent;
+    const { messagesReceived } = this.props;
     return (
       <View>
-        {messages.length === 0
+        {messagesReceived.length === 0
             && (
               <Text style={styles.noMessage} note>
                 noNewMessage
               </Text>
             )}
         <FlatList
-          data={messages}
+          removeClippedSubviews={false}
+          data={messagesReceived}
           renderItem={this.renderMessage}
-          keyExtractor={message => message.id}
-        >
-          {/*messages.map((message, index) => this.renderMessage(message, index))*/}
-        </FlatList>
+          keyExtractor={message => `${message.id}`}
+          extraData={this.state.refresh}
+          // onEndReachedThreshold={0.5}
+          // onEndReached={() => this.getNextPage()}
+        />
       </View>
     );
   }
 
   render() {
-    const { currentTab } = this.state;
     const postContent = (
       <Fab
         direction="up"
@@ -141,14 +159,14 @@ export default class Messages extends React.Component<PropsType> {
       <Segment style={styles.segment}>
         <Button
           first
-          active={currentTab === 'received'}
-          onPress={() => this.switchTab('received')}
+          active={true}
+          onPress={() => {}}
         >
           <Text>received</Text>
         </Button>
         <Button
           last
-          active={currentTab === 'sent'}
+          active={false}
           onPress={() => this.switchTab('sent')}
         >
           <Text>sent</Text>

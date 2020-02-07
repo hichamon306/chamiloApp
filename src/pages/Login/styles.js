@@ -34,4 +34,14 @@ export default StyleSheet.create({
   contentContainerStyle: {
     flexGrow: 1,
   },
+  rememberMeContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 20,
+    justifyContent: 'flex-start',
+    alignSelf: 'flex-start',
+  },
+  checkbox: {
+    marginRight: 30,
+  },
 });

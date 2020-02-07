@@ -18,3 +18,9 @@
 -dontwarn okhttp3.**
 -dontwarn okio.**
 -dontwarn io.invertase.**
+
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+  @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }

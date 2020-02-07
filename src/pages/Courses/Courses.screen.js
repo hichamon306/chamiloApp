@@ -25,8 +25,6 @@ type PropsType = {
   courseList: any,
   sessionList: any,
   authenticationData: any,
-  getUserCourses: ()=> void,
-  getUserSessions: ()=> void,
 };
 
 type StateType = {
@@ -103,8 +101,6 @@ export default class Courses extends React.Component<PropsType> {
   }
 
   onDidFocus() {
-    this.props.getUserCourses();
-    this.props.getUserSessions();
     this.setState({
       currentTab: this.props.navigation.getParam('currentTab', 'courses'),
     });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert, SafeAreaView } from 'react-native';
+import isEqual from 'react-fast-compare';
 import {
   Thumbnail,
   List,
@@ -20,7 +21,6 @@ type PropsType = {
   navigation: any,
   userProfile: any,
   logout: ()=> void,
-  getUserProfil: ()=> void,
 };
 
 export default class Home extends React.Component<PropsType> {
@@ -36,6 +36,13 @@ export default class Home extends React.Component<PropsType> {
         </Right>
       </ListItem>
     );
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (!isEqual(this.props.userProfile, nextProps.userProfile)) {
+      return true;
+    }
+    return false;
   }
 
   onLogout() {
@@ -66,7 +73,6 @@ export default class Home extends React.Component<PropsType> {
       <Page
         footerProps={footerProps}
         headerProps
-        onDidFocus={() => this.props.getUserProfil()}
       >
         <SafeAreaView>
           <Button style={styles.closeButton} transparent onPress={() => this.props.navigation.toggleDrawer()}>

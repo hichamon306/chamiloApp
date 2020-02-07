@@ -6,9 +6,7 @@ type PropsType = {
   navigation: any,
   authenticationData: any,
   registerDeviceToken: () => void,
-  getUserMessagesReceived: () => void,
-  getUserCourses: () => void,
-  getUserSessions: () => void,
+  loadData: () => void,
 };
 
 const styles = StyleSheet.create({
@@ -79,10 +77,7 @@ class AuthLoading extends React.Component<PropsType> {
     this.notificationListener = firebase.notifications().onNotification((notification) => {
       const { title, body } = notification;
       console.log(title, body);
-      this.props.getUserMessagesReceived();
-      this.props.getUserCourses();
-      this.props.getUserSessions();
-      // this.navigateToMessages();
+      this.props.loadData();
     });
     /*
     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
@@ -124,6 +119,10 @@ class AuthLoading extends React.Component<PropsType> {
       ],
       { cancelable: true },
     );
+  }
+
+  shouldComponentUpdate() {
+    return false;
   }
 
   render() {

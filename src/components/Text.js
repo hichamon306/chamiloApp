@@ -25,6 +25,10 @@ type PropsType = {
 class CustomText extends React.Component<PropsType> {
   props: PropsType;
 
+  shouldComponentUpdate() {
+    return true;
+  }
+
   render() {
     const { skipTranslation, children } = this.props;
     const translatedText = skipTranslation ?

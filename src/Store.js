@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
+import AsyncStorage from '@react-native-community/async-storage';
 import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -16,7 +16,8 @@ const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: AsyncStorage,
+  blacklist: ['authentication', 'messages'],
   stateReconciler: autoMergeLevel2, // see "Merge Process" section for details.
 };
 const pReducer = persistReducer(persistConfig, rootReducer);
@@ -36,7 +37,7 @@ export default class Store extends Component<PropsType> {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <App store={store} />
+          <App />
         </PersistGate>
       </Provider>
     );

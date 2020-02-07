@@ -41,4 +41,5 @@ export default {
   build: 'Code de la version',
   send: 'Envoyer',
   cgu: 'Conditions générales d\'utilisation',
+  rememberMe: 'se souvenir de moi',
 };

@@ -41,4 +41,5 @@ export default {
   build: 'Build',
   send: 'Send',
   cgu: 'Terms of Service',
+  rememberMe: 'remember me',
 };

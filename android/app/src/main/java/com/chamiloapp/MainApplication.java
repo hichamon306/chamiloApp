@@ -3,6 +3,8 @@ package com.chamiloapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage;
@@ -35,6 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNInAppBrowserPackage(),
+            new AsyncStoragePackage(),
             new RNScreensPackage(),
             new RNCWebViewPackage(),
             new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appCenterAnalytics_whenToEnableAnalytics)),

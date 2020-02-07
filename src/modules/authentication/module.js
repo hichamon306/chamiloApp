@@ -16,11 +16,12 @@ export const actionTypes = {
   },
 };
 
-export const loginActionCreator = (username: string, password: string) =>
+export const loginActionCreator = (username: string, password: string, rememberMe: Boolean) =>
   ({
     type: actionTypes.LOGIN_ACTION.REQUEST,
     username,
     password,
+    rememberMe,
   });
 
 export const registerDeviceTokenActionCreator = (fcmToken: string) =>
@@ -36,6 +37,9 @@ export const logoutActionCreator = () =>
 
 const initialState: AuthenticationStateType = {
   authenticationData: null,
+  username: null,
+  password: null,
+  rememberMe: false,
   apiLoading: false,
 };
 
@@ -49,8 +53,19 @@ export function authenticationReducer(state: AuthenticationStateType = initialSt
       return {
         ...state,
         authenticationData: action.authenticationData,
+        username: action.rememberMe ? action.authenticationData.username : null,
+        password: action.rememberMe ? action.authenticationData.password : null,
+        rememberMe: action.rememberMe,
       };
     case globalActionTypes.LOGOUT_ACTION.SUCCESS:
+      if (state.rememberMe) {
+        return {
+          ...initialState,
+          username: state.username,
+          password: state.password,
+          rememberMe: true,
+        };
+      }
       return initialState;
     default:
       return state;

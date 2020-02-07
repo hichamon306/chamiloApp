@@ -24,6 +24,18 @@ class CustomFooter extends React.Component<PropsType> {
     navigation.navigate(routeName);
   }
 
+  shouldComponentUpdate(nextProps) {
+    const currentIndex = this.props.navigation.state.index;
+    const nextIndex = nextProps.navigation.state.index;
+    if (currentIndex !== nextIndex) {
+      return true;
+    }
+    if (this.props.unreadMessagesCount !== nextProps.unreadMessagesCount) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     // console.log(this.props);
     const { index } = this.props.navigation.state;

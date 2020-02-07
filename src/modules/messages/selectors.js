@@ -1,7 +1,30 @@
 // @flow
+// import { drop } from 'lodash';
 import { MESSAGE_STATUS_UNREAD } from '../../config/constants';
 
-export const getMessagesReceivedList = (state: any) => state.messages.messagesReceived;
+/*
+const messagePerPage = 10;
+
+function getPaginatedItems(items, page, pageSize) {
+  var pg = page || 1,
+    pgSize = pageSize || 100,
+    offset = (pg - 1) * pgSize,
+    pagedItems = drop(items, offset).slice(0, pgSize);
+  return {
+    page: pg,
+    pageSize: pgSize,
+    total: items.length,
+    total_pages: Math.ceil(items.length / pgSize),
+    data: pagedItems,
+  };
+}
+*/
+
+export const getMessagesReceivedList = (state: any) => {
+  const { messagesReceived /* , currentPage */ } = state.messages;
+  return messagesReceived;
+  // return getPaginatedItems(messagesReceived, currentPage, messagePerPage);
+};
 export const getMessagesSentList = (state: any) => state.messages.messagesSent;
 
 export const getCountUnreadMessages =
@@ -24,3 +47,5 @@ export const getMessageSentLastId = (state: any) => {
   }
   return 0;
 };
+
+export const getCurrentPage = (state: any) => state.messages.currentPage;

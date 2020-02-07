@@ -42,6 +42,7 @@ function* updateMessageStatus(action: any) {
   }
   yield callApi(Api.setMessageRead(authenticationData, messageId));
   yield put({ type: actionTypes.UPDATE_MESSAGE_STATUS_ACTION.SUCCESS, messageId, messageType });
+  if (action.callback) action.callback();
 }
 export function* updateMessageStatusSagas(): SagaType {
   const requestActionType = actionTypes.UPDATE_MESSAGE_STATUS_ACTION.REQUEST;

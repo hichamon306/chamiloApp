@@ -38,6 +38,8 @@ export const actionTypes = {
     API_LOADING_START: 'SEND_MESSAGE_API_LOADING_START',
     API_LOADING_STOP: 'SEND_MESSAGE_API_LOADING_STOP',
   },
+  SET_CURRENT_PAGE_ACTION: 'SET_CURRENT_PAGE_ACTION',
+  SET_TEMP_MESSAGE_ACTION: 'SET_TEMP_MESSAGE_ACTION',
 };
 
 export const getUserMessagesReceivedActionCreator = () =>
@@ -58,12 +60,14 @@ export const deleteUserMessageActionCreator = (messageId: string, msgType: strin
     callback,
   });
 
-export const updateMessageStatusActionCreator = (messageId: string, msgStatus: string, messageType: string) =>
+export const updateMessageStatusActionCreator =
+(messageId: string, msgStatus: string, messageType: string, callback: any) =>
   ({
     type: actionTypes.UPDATE_MESSAGE_STATUS_ACTION.REQUEST,
     messageId,
     msgStatus,
     messageType,
+    callback,
   });
 
 export const getUsersActionCreator = (search: string) => ({
@@ -82,14 +86,23 @@ export const setUserListActionCreator = (userList: any) => ({
   userList,
 });
 
+export const setCurrentPageActionCreator = (currentPage: any) => ({
+  type: actionTypes.SET_CURRENT_PAGE_ACTION,
+  currentPage,
+});
+
 
 const setMessageRead = (state, action) => {
-  const { messagesReceived } = state;
+  const messagesReceived = [...state.messagesReceived]; // JSON.parse(JSON.stringify(state.messagesReceived));
+  const objIndex = messagesReceived.findIndex((obj => obj.id === action.messageId));
+  messagesReceived[objIndex].msgStatus = MESSAGE_STATUS_NEW;
+  /*
   messagesReceived.forEach((element, index) => {
     if (element.id === action.messageId) {
       messagesReceived[index].msgStatus = MESSAGE_STATUS_NEW;
     }
   });
+  */
   return {
     ...state,
     messagesReceived,
@@ -129,7 +142,9 @@ const initialState: MessagesStateType = {
   messagesReceived: [],
   messagesSent: [],
   userList: [],
+  tempMessage: [],
   apiLoading: false,
+  currentPage: 1,
 };
 
 export function messagesReducer(state: MessagesStateType = initialState, action: any) {
@@ -162,6 +177,16 @@ export function messagesReducer(state: MessagesStateType = initialState, action:
       // return newState;
     case actionTypes.DELETE_USER_MESSAGE_ACTION.SUCCESS:
       return deleteMessage(state, action);
+    case actionTypes.SET_CURRENT_PAGE_ACTION:
+      return {
+        ...state,
+        currentPage: action.currentPage,
+      };
+    case actionTypes.SET_TEMP_MESSAGE_ACTION:
+      return {
+        ...state,
+        tempMessage: action.message,
+      };
     case actionTypes.GET_USERS_ACTION.SUCCESS:
       return {
         ...state,

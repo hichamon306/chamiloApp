@@ -2,8 +2,7 @@
 import { connect } from 'react-redux';
 import AuthLoading from './AuthLoading.screen';
 import { getAuthenticationData, registerDeviceTokenActionCreator } from '../../modules/authentication';
-import { getUserMessagesReceivedActionCreator } from '../../modules/messages';
-import { getUserCoursesActionCreator, getUserSessionsActionCreator } from '../../modules/courses';
+import { loadDataActionCreator } from '../../modules/dataLoader';
 
 const mapStateToProps = state => ({
   authenticationData: getAuthenticationData(state),
@@ -11,8 +10,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = ({
   registerDeviceToken: registerDeviceTokenActionCreator,
-  getUserMessagesReceived: getUserMessagesReceivedActionCreator,
-  getUserCourses: getUserCoursesActionCreator,
-  getUserSessions: getUserSessionsActionCreator,
+  loadData: loadDataActionCreator,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(AuthLoading);
