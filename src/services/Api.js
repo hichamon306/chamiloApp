@@ -92,10 +92,10 @@ export const setMessageRead = (authenticationData: any, messageId: string) => (
   request
     .post(API_URL)
     .send({
-      action: 'set_message_read',
+      action: 'user_message_read',
       username: authenticationData.username,
       api_key: authenticationData.apiKey,
-      message_id: messageId,
+      'messages[]': [messageId],
     })
 );
 
