@@ -8,7 +8,7 @@ import {
   Thumbnail,
   StyleProvider,
 } from 'native-base';
-import headerLogo from '../../assets/logo-ceusi-transparent.png';
+import headerLogo from '../../assets/logo-transparent.png';
 import getTheme from '../../native-base-theme/components';
 import chamilo from '../../native-base-theme/variables/chamilo';
 
