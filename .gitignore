@@ -74,3 +74,5 @@ Gemfile.lock
 
 #Google Firebase
 GoogleService-Info*
+
+.gitauth*
