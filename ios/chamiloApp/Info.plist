@@ -46,9 +46,10 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>L'application a besoin d'acceder à votre geolocalisation</string>
 	<key>NSMainNibFile</key>
-	<string>LaunchScreen</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>L'application souhaite utiliser le microphone du téléphone</string>
+	<dict>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>L'application souhaite utiliser le microphone du téléphone</string>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
